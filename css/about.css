@@ -10,55 +10,113 @@
   background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(26,140,255,0.05) 0%, transparent 70%);
 }
 .nodes-visual {
-  display: flex; align-items: center; justify-content: center;
-  gap: 0; position: relative; margin: 48px 0;
-  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 64px 0;
 }
+
+.nodes-orbit-wrapper {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  animation: orbitSpin 12s linear infinite;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* SVG lines sit behind everything */
+.nodes-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.node-line {
+  stroke: var(--accent);
+  stroke-width: 2px;
+  opacity: 0.35;
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+
+.signal-dot {
+  fill: var(--accent-bright);
+  filter: drop-shadow(0 0 6px var(--accent-bright)) drop-shadow(0 0 12px var(--accent));
+}
+
+/* Triangle layout — top, bottom-left, bottom-right */
+.nodes-triangle {
+  position: absolute;
+  inset: 0;
+}
+
 .node-item {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 12px; z-index: 1; width: 180px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  /* counter-rotate so labels stay upright while wrapper spins */
+  animation: orbitCounterSpin 12s linear infinite;
 }
+
+@keyframes orbitCounterSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* Top node */
+.node-item:nth-child(1) { top: 6%; left: 50%; }
+/* Bottom-left node */
+.node-item:nth-child(2) { top: 78%; left: 14%; }
+/* Bottom-right node */
+.node-item:nth-child(3) { top: 78%; left: 86%; }
+
 .node-circle {
-  width: 80px; height: 80px; border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
   border: 2px solid var(--border-accent);
   background: var(--accent-glow);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.6rem;
-  position: relative;
-  transition: all var(--t-med);
+  box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(26,140,255,0.1);
+  transition: box-shadow var(--t-med);
 }
-.node-circle::after {
-  content: '';
-  position: absolute; inset: -6px; border-radius: 50%;
-  border: 1px dashed rgba(26,140,255,0.2);
-  animation: spinSlow 12s linear infinite;
-}
+
 .node-item:hover .node-circle {
-  transform: scale(1.1);
-  box-shadow: var(--glow-blue);
+  box-shadow: 0 0 30px rgba(26,140,255,0.5), 0 0 60px rgba(26,140,255,0.2);
 }
-@keyframes spinSlow { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+
 .node-label {
-  font-family: var(--font-display); font-size: 0.9rem;
-  font-weight: 700; color: var(--text-primary); text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
 }
+
 .node-sublabel {
-  font-family: var(--font-mono); font-size: 0.7rem;
-  color: var(--text-muted); text-align: center; letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
-.node-connector {
-  width: 80px; height: 2px;
-  background: linear-gradient(90deg, var(--accent), rgba(26,140,255,0.3));
-  position: relative; align-self: flex-start; margin-top: 39px;
+
+@media (max-width: 480px) {
+  .nodes-orbit-wrapper { width: 280px; height: 280px; }
+  .node-circle { width: 58px; height: 58px; font-size: 1.3rem; }
+  .node-sublabel { display: none; }
 }
-.node-connector::after {
-  content: '';
-  position: absolute; right: -4px; top: -3px;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-}
-@media (max-width: 600px) { .node-connector { display: none; } .nodes-visual { gap: 24px; } }
 
 .services-detail { padding: var(--section-py) 0; }
 .svc-detail-item {

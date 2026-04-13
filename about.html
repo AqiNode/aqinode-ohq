@@ -42,28 +42,68 @@
           Three interconnected disciplines that form the core of everything we build.
         </p>
       </div>
-      <div class="nodes-visual">
-        <div class="node-item reveal delay-1">
-          <div class="node-circle"><i class="fa-solid fa-globe"></i></div>
-          <div class="node-label">Web</div>
-          <div class="node-sublabel">Applications & Mobile</div>
-        </div>
-        <div class="node-connector reveal delay-2"></div>
-        <div class="node-item reveal delay-2">
-          <div class="node-circle"><i class="fa-solid fa-brain"></i></div>
-          <div class="node-label">AI</div>
-          <div class="node-sublabel">Agents & Integration</div>
-        </div>
-        <div class="node-connector reveal delay-3"></div>
-        <div class="node-item reveal delay-3">
-          <div class="node-circle"><i class="fa-solid fa-box"></i></div>
-          <div class="node-label">SaaS</div>
-          <div class="node-sublabel">Software & Platforms</div>
-        </div>
-      </div>
+
+
+
     </div>
   </section>
 
+<div class="nodes-visual">
+  <div class="nodes-orbit-wrapper">
+    <svg class="nodes-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Connection lines -->
+      <line class="node-line" x1="160" y1="40" x2="40" y2="260"/>
+      <line class="node-line" x1="160" y1="40" x2="280" y2="260"/>
+      <line class="node-line" x1="40" y1="260" x2="280" y2="260"/>
+      <!-- Traveling signal dots -->
+      <circle class="signal-dot" r="4">
+        <animateMotion dur="2s" repeatCount="indefinite">
+          <mpath href="#path1"/>
+        </animateMotion>
+      </circle>
+      <circle class="signal-dot" r="4">
+        <animateMotion dur="2s" begin="0.66s" repeatCount="indefinite">
+          <mpath href="#path2"/>
+        </animateMotion>
+      </circle>
+      <circle class="signal-dot" r="4">
+        <animateMotion dur="2s" begin="1.33s" repeatCount="indefinite">
+          <mpath href="#path3"/>
+        </animateMotion>
+      </circle>
+      <!-- Hidden paths for signal travel -->
+      <defs>
+        <path id="path1" d="M160,40 L280,260"/>
+        <path id="path2" d="M280,260 L40,260"/>
+        <path id="path3" d="M40,260 L160,40"/>
+      </defs>
+    </svg>
+
+    <div class="nodes-triangle">
+      <div class="node-item" style="--i:0">
+        <div class="node-circle">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+        <div class="node-label">Web</div>
+        <div class="node-sublabel">Applications & Mobile</div>
+      </div>
+      <div class="node-item" style="--i:1">
+        <div class="node-circle">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="node-label">AI</div>
+        <div class="node-sublabel">Agents & Integration</div>
+      </div>
+      <div class="node-item" style="--i:2">
+        <div class="node-circle">
+          <i class="fa-solid fa-box"></i>
+        </div>
+        <div class="node-label">SaaS</div>
+        <div class="node-sublabel">Software & Platforms</div>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- ── SERVICES DETAIL ── -->
   <section class="services-detail">
     <div class="container">
