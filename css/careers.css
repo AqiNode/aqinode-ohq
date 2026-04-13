@@ -1,0 +1,50 @@
+/* careers.css */
+.why-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin: 48px 0;
+}
+.why-card {
+  text-align: center; padding: 36px 28px;
+}
+.why-card .why-icon {
+  width: 56px; height: 56px; border-radius: 16px;
+  background: var(--accent-glow); border: 1px solid var(--border-accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin: 0 auto 20px;
+}
+.why-card h3 {
+  font-family: var(--font-display); font-size: 1.1rem;
+  font-weight: 700; margin-bottom: 10px;
+}
+.why-card p {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;
+}
+@media (max-width: 768px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+.roles-section { padding: var(--section-py) 0; }
+.no-roles-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 64px 48px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.no-roles-box::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 200px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.no-roles-box .big-label {
+  font-family: var(--font-mono); font-size: 0.75rem;
+  letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase;
+  margin-bottom: 16px; display: block;
+}
+.no-roles-box h3 {
+  font-family: var(--font-display); font-size: 1.6rem;
+  font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em;
+}
+.no-roles-box p {
+  color: var(--text-secondary); max-width: 420px; margin: 0 auto 28px;
+  line-height: 1.7; font-size: 0.95rem;
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AqiNode — Building Now, Shaping What's Next. A visionary tech startup crafting intelligent web, AI, and software solutions.">
+  <meta property="og:title" content="AqiNode — Building Now, Shaping What's Next.">
+  <meta property="og:description" content="Intelligent, scalable digital systems for the modern era.">
+  <meta property="og:image" content="img/logo.png">
+  <title>AqiNode — Building Now, Shaping What's Next.</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+  .ripple {
+  position: fixed;
+  border-radius: 50%;
+  background: rgba(0, 150, 255, 0.4);
+  transform: scale(0);
+  pointer-events: none;
+  animation: ripple-animation 600ms ease-out;
+  z-index: 9999;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+  
+  
+    /* Basic styling for the new SVG icons */
+    .icon-svg {
+      width: 1em; /* Inherit font-size for sizing */
+      height: 1em; /* Inherit font-size for sizing */
+      vertical-align: -0.125em; /* Align with text baseline */
+      display: inline-block;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    /* Adjustments for specific icon containers if needed */
+    .about-mini-card .icon .icon-svg,
+    .service-card .svc-icon .icon-svg {
+      width: 24px; /* Or whatever size matches the original emoji size */
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div data-component="navbar"></div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-glow"></div>
+      <div class="hero-bg-glow2"></div>
+    </div>
+    <div class="hero-grid"></div>
+    <canvas id="particleCanvas" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></canvas>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge reveal">
+            <span class="pulse"></span>
+            <span>STATUS: ACTIVE & BUILDING</span>
+          </div>
+          <h1 class="hero-title reveal delay-1">
+            Building Now.
+            <span class="line2">Shaping What's Next.</span>
+          </h1>
+          <p class="hero-desc reveal delay-2">
+            AqiNode is a visionary tech startup crafting intelligent, scalable software for the modern era.
+            We blend design, code, and strategy to build digital experiences that connect, empower, and inspire.
+          </p>
+          <div class="hero-actions reveal delay-3">
+            <a href="about.html" class="btn btn-primary">
+              Explore Services
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a href="products.html" class="btn btn-ghost">View Our Work</a>
+          </div>
+          <div class="hero-stats reveal delay-4">
+            <div class="stat-item">
+              <div class="stat-num">Early</div>
+              <div class="stat-label">SHIPPING FAST</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" data-counter="5" data-suffix="">3</div>
+              <div class="stat-label">CORE PILLARS</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" data-counter="100" data-suffix="%">100%</div>
+              <div class="stat-label">SCALING POTENTIAL</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal-right delay-2">
+          <div class="hero-orb">
+            <img src="img/logo.png" alt="AqiNode" class="hero-orb-logo">
+            <div class="hero-orb-nodes">
+              <div class="orb-node" data-label="AI"></div>
+              <div class="orb-node" data-label="Web"></div>
+              <div class="orb-node" data-label="SaaS"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-section">
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span class="marquee-item"><span class="dot"></span>Artificial Intelligence</span>
+        <span class="marquee-item"><span class="dot"></span>Web Development</span>
+        <span class="marquee-item"><span class="dot"></span>Mobile Apps</span>
+        <span class="marquee-item"><span class="dot"></span>SaaS Platforms</span>
+        <span class="marquee-item"><span class="dot"></span>Cloud Infrastructure</span>
+        <span class="marquee-item"><span class="dot"></span>Automation</span>
+        <span class="marquee-item"><span class="dot"></span>AI Agents</span>
+        <span class="marquee-item"><span class="dot"></span>Software Engineering</span>
+        <span class="marquee-item"><span class="dot"></span>API Integration</span>
+        <span class="marquee-item"><span class="dot"></span>Data Intelligence</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT SNIPPET ── -->
+  <section class="about-snippet">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text-col">
+          <p class="section-label reveal">About AqiNode</p>
+          <h2 class="h-xl reveal delay-1">
+            We don't just build software —<br>
+            <span class="gradient-text">we architect the future.</span>
+          </h2>
+          <p class="reveal delay-2">
+            We are a forward-thinking technology company dedicated to pushing the boundaries of what's possible
+            in the digital realm. Our mission is to create innovative solutions that not only meet today's
+            challenges but anticipate tomorrow's opportunities.
+          </p>
+          <p class="reveal delay-3">
+            With expertise spanning web development, artificial intelligence, and cutting-edge software engineering,
+            we transform complex problems into elegant, scalable solutions that drive real business value.
+          </p>
+          <a href="about.html" class="btn btn-ghost reveal delay-4">
+            Learn more about us
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="14"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="about-visual-col">
+          <div class="about-mini-card reveal delay-1">
+            <div class="icon">
+              <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            </div>
+            <p>Web & Mobile</p>
+          </div>
+          <div class="about-mini-card reveal delay-2">
+            <div class="icon">
+              <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"/><path d="M6 18h12"/><path d="M6 6h12"/><path d="M18 6v12"/><path d="M6 6v12"/></svg>
+            </div>
+            <p>AI & Agents</p>
+          </div>
+          <div class="about-mini-card reveal delay-3">
+            <div class="icon">
+              <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <p>Automation</p>
+          </div>
+          <div class="about-mini-card reveal delay-4">
+            <div class="icon">
+              <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+            </div>
+            <p>SaaS / Cloud</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-label reveal">What We Do</p>
+          <h2 class="h-xl reveal delay-1">Our Services</h2>
+        </div>
+        <a href="about.html" class="btn btn-ghost btn-sm reveal delay-2">View all →</a>
+      </div>
+      <div class="services-grid">
+        <div class="card service-card reveal delay-1">
+          <div class="svc-icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <h3>Web & Mobile Applications</h3>
+          <p>High-performance web and mobile apps built with modern frameworks. Responsive, secure, and optimized for real users.</p>
+          <a href="about.html#web" class="card-link">
+            Learn more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="card service-card reveal delay-2">
+          <div class="svc-icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77Z"/></svg>
+          </div>
+          <h3>Software Solutions</h3>
+          <p>Custom software tailored to your operations — from internal tools to full SaaS platforms with long-term maintainability.</p>
+          <a href="about.html#software" class="card-link">
+            Learn more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="card service-card reveal delay-3">
+          <div class="svc-icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c2-2.9 0-7.5-2-10A10 10 0 0 0 2 12c0 2.7 1 4.9 3 6.7 2.1 2 4.4 3.3 7 3.3s4.9-1.3 7-3.3c2-1.8 3-4 3-6.7a10 10 0 0 0-8-10c-2 2.5-2 7.1 0 10z"/><path d="M12 12c-2.9 2-7.5 0-10-2A10 10 0 0 0 12 22c2.7 0 4.9-1 6.7-3 2-2.1 3.3-4.4 3.3-7s-1.3-4.9-3.3-7c-1.8-2-4-3-6.7-3a10 10 0 0 0-10 8c2.5 2 7.1 2 10 0z"/></svg>
+          </div>
+          <h3>Artificial Intelligence</h3>
+          <p>Intelligent AI systems and agents that think, respond, and adapt — automating tasks and delivering real-world value.</p>
+          <a href="about.html#ai" class="card-link">
+            Learn more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="card service-card reveal delay-4">
+          <div class="svc-icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.5 3.5"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07L14.5 20.5"/></svg>
+          </div>
+          <h3>AI Integration</h3>
+          <p>Seamlessly integrate AI capabilities into your existing systems — chatbots, recommendation engines, and data intelligence layers.</p>
+          <a href="about.html#ai-integration" class="card-link">
+            Learn more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="card service-card reveal delay-5">
+          <div class="svc-icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Automation Solutions</h3>
+          <p>Smart automation that eliminates manual processes, reduces errors, and helps businesses operate faster and smarter at scale.</p>
+          <a href="about.html#automation" class="card-link">
+            Learn more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="card service-card reveal delay-6">
+          <div class="svc-icon">
+            <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          </div>
+          <h3>Consulting & Strategy</h3>
+          <p>From architecture reviews to go-to-market tech strategy — we help you make the right technical decisions before you build.</p>
+          <a href="contact.html" class="card-link">
+            Get in touch <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTS TEASER ── -->
+  <section class="products-teaser">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-label reveal">Featured Work</p>
+          <h2 class="h-xl reveal delay-1">What We've Built</h2>
+        </div>
+        <a href="products.html" class="btn btn-ghost btn-sm reveal delay-2">All projects →</a>
+      </div>
+      <div class="products-grid">
+        <div class="card product-card reveal delay-1">
+          <div class="prod-meta">
+            <span class="tag">AI</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">2025</span>
+          </div>
+          <h3>Aven</h3>
+          <p>Streamline assignment management, track student progress, and deliver feedback — all in one elegant platform.</p>
+          <div class="stack">
+            <span class="tag">JavaScript</span>
+            <span class="tag violet">Next.js</span>
+            <span class="tag green">AI</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://aven-waitlist.rf.gd" target="_blank" rel="noopener">
+              Join Waitlist
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="card product-card reveal delay-2">
+          <div class="prod-meta">
+            <span class="tag coral">Web</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">2025</span>
+          </div>
+          <h3>Vibe Checker</h3>
+          <p>Analyzes whether a webpage was built by a real human or generated by AI — paste a URL and get an instant score.</p>
+          <div class="stack">
+            <span class="tag">JavaScript</span>
+            <span class="tag violet">React.js</span>
+            <span class="tag">PHP</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://vibechecker-web.vercel.app" target="_blank" rel="noopener">
+              View Live
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="card product-card reveal delay-3">
+          <div class="prod-meta">
+            <span class="tag">AI</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">2025</span>
+          </div>
+          <h3>Auracle</h3>
+          <p>An intelligent agent built to find the right online tool in seconds — reducing decision-making time dramatically.</p>
+          <div class="stack">
+            <span class="tag">JavaScript</span>
+            <span class="tag violet">LLM</span>
+            <span class="tag green">API</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://auracle-ai.vercel.app" target="_blank" rel="noopener">
+              View Live
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ── -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-inner reveal">
+        <p class="section-label" style="justify-content:center;">Let's Build</p>
+        <h2>Have an idea? <span class="gradient-text">Let's ship it.</span></h2>
+        <p>Tell us what you're building. We'll see how we can partner up to make it happen — from MVP to full-scale platform.</p>
+        <div class="actions">
+          <a href="contact.html" class="btn btn-primary">Start a Project</a>
+          <a href="products.html" class="btn btn-ghost">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-component="footer"></div>
+<script src="js/ripple.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/index.js"></script>
+  <script>AqiNode.mount();</script>
+</body>
+</html>

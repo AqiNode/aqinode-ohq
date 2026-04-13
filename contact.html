@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact AqiNode — reach out to start a project or say hello.">
+  <title>Contact — AqiNode</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <div data-component="navbar"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <p class="section-label page-hero-eyebrow reveal">Contact</p>
+        <h1 class="h-display page-hero-title reveal delay-1">
+          Let's <span class="gradient-text">Talk</span>
+        </h1>
+        <p class="page-hero-desc reveal delay-2">
+          Have a project in mind? Want to partner up? Or just want to say hello?
+          We'd love to hear from you. We typically respond within 24 hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Contact methods -->
+        <div class="contact-methods">
+          <p class="section-label reveal">Reach Out</p>
+          <h2 class="h-lg reveal delay-1" style="margin-bottom:32px;">
+            Multiple ways<br>to connect
+          </h2>
+
+          <a href="mailto:aqinodelabs@gmail.com" class="card contact-method-card reveal delay-2">
+            <div class="method-icon">✉️</div>
+            <div class="method-body">
+              <h4>Email Us</h4>
+              <p>General inquiries & projects</p>
+              <span>aqinodelabs@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://wa.me/2347057182425" target="_blank" rel="noopener" class="card contact-method-card reveal delay-3">
+            <div class="method-icon">💬</div>
+            <div class="method-body">
+              <h4>WhatsApp</h4>
+              <p>Quick chats & DMs</p>
+              <span>Message us directly →</span>
+            </div>
+          </a>
+
+          <a href="https://x.com/aqinode_hq" target="_blank" rel="noopener" class="card contact-method-card reveal delay-4">
+            <div class="method-icon">𝕏</div>
+            <div class="method-body">
+              <h4>X / Twitter</h4>
+              <p>Follow our journey & updates</p>
+              <span>@aqinode_hq →</span>
+            </div>
+          </a>
+
+          <div class="card reveal delay-5" style="padding:24px;">
+            <p class="section-label" style="margin-bottom:8px;">Response time</p>
+            <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.6;">
+              We aim to respond to all inquiries within <strong style="color:var(--text-primary);">24 hours</strong> on business days.
+              For urgent matters, WhatsApp is fastest.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="card contact-form-card reveal delay-2">
+          <h2>Send us a message</h2>
+          <p class="sub">Fill out the form and we'll get back to you promptly.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="">Select a topic…</option>
+                <option value="project">Start a project</option>
+                <option value="ai">AI / Automation inquiry</option>
+                <option value="web">Web / App development</option>
+                <option value="partnership">Partnership</option>
+                <option value="careers">Speculative CV</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project, what you're building, or just say hello…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              Send Message
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" width="16"><path d="M2 8h10M8 4l4 4-4 4"/></svg>
+            </button>
+            <div class="form-msg" id="formMsg"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div data-component="footer"></div>
+
+  <script src="js/core.js"></script>
+  <script>
+    AqiNode.mount();
+
+    // Form handler (mailto fallback since no backend)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+      const msg     = document.getElementById('formMsg');
+
+      if (!name || !email || !message) {
+        msg.textContent = '⚠ Please fill in all required fields.';
+        msg.className = 'form-msg error'; msg.style.display = 'block'; return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.textContent = '⚠ Please enter a valid email address.';
+        msg.className = 'form-msg error'; msg.style.display = 'block'; return;
+      }
+
+      const body = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+      window.location.href = `mailto:aqinodelabs@gmail.com?subject=AqiNode Contact: ${encodeURIComponent(subject || 'General Inquiry')}&body=${body}`;
+
+      msg.textContent = '✓ Opening your email client… If nothing happens, email us directly at aqinodelabs@gmail.com';
+      msg.className = 'form-msg success'; msg.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
