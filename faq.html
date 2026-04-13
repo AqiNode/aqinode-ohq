@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AqiNode FAQ — everything you need to know about working with us.">
+  <meta name="description" content="AqiNode FAQ — everything you need to know about who we are and what we're building.">
   <title>FAQ — AqiNode</title>
   <link rel="icon" type="image/png" href="img/logo.png">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/faq.css">
+  <script>
+    (function(){
+      var t = localStorage.getItem('aqinode-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
 </head>
 <body>
 
@@ -22,8 +29,8 @@
           Frequently Asked <span class="gradient-text">Questions</span>
         </h1>
         <p class="page-hero-desc reveal delay-2">
-          Everything you need to know about working with AqiNode — from how we work to what we charge.
-          Can't find your answer? <a href="contact.html" style="color:var(--accent);">Just ask us.</a>
+          Everything you need to know about AqiNode — who we are, what we're building, and where we're going.
+          Still curious? <a href="contact.html" style="color:var(--accent);">Talk to us directly.</a>
         </p>
       </div>
     </div>
@@ -33,25 +40,35 @@
     <div class="container">
 
       <div class="faq-categories reveal">
-        <button class="faq-cat-btn active" data-cat="all">All Questions</button>
-        <button class="faq-cat-btn" data-cat="general">General</button>
-        <button class="faq-cat-btn" data-cat="services">Services</button>
-        <button class="faq-cat-btn" data-cat="process">Process</button>
-        <button class="faq-cat-btn" data-cat="pricing">Pricing</button>
+        <button class="faq-cat-btn active" data-cat="all">All</button>
+        <button class="faq-cat-btn" data-cat="company">Company</button>
+        <button class="faq-cat-btn" data-cat="products">Products</button>
+        <button class="faq-cat-btn" data-cat="vision">Vision</button>
         <button class="faq-cat-btn" data-cat="technical">Technical</button>
+        <button class="faq-cat-btn" data-cat="collab">Collaborate</button>
       </div>
 
-      <!-- GENERAL -->
-      <div class="faq-group reveal" data-group="general">
-        <div class="faq-group-title">General</div>
+      <!-- COMPANY -->
+      <div class="faq-group reveal" data-group="company">
+        <div class="faq-group-title">Company</div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">What exactly is AqiNode?</span>
+            <span class="faq-q-text">What is AqiNode?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>AqiNode is a technology startup that builds intelligent, scalable digital systems. We specialize in web & mobile applications, AI-powered solutions, software engineering, and automation. Think of us as a technical co-founder or engineering team you can bring in to design and ship your product.</p>
+            <p>AqiNode is a multi-product technology company building an ecosystem of intelligent software systems. We design and ship products that sit at the intersection of AI, automation, and modern infrastructure — built to scale, built to last. Think of us less like an agency and more like a product lab with real ambition.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-q-text">Is AqiNode a startup, agency, or something else?</span>
+            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>AqiNode is a product-first startup company — not a freelance operation, not a traditional agency. We build and own our products long-term. Every system we create is part of a broader ecosystem we're developing with the same ambition that drives companies like Google or Meta. We're early — but we're building with that scale in mind from day one.</p>
           </div>
         </div>
 
@@ -61,162 +78,109 @@
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>We're a fully remote-native company. Our team operates across time zones, which means we're flexible and can work with clients globally. You can reach us via email, WhatsApp, or X.</p>
+            <p>We're remote-native and distributed across time zones. Our products are built for a global audience and our team operates without borders. We communicate through email, WhatsApp, and X.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">Is AqiNode a freelancer or a company?</span>
+            <span class="faq-q-text">How long has AqiNode been around?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>AqiNode is a startup — not a solo freelancer. We operate as a small but focused team, bringing together design, engineering, and strategy under one roof. This means more accountability, better communication, and consistent quality throughout your project.</p>
+            <p>AqiNode is an early-stage company. We're in active build mode — shipping products, iterating fast, and laying the infrastructure for what we're becoming. Early doesn't mean small. It means the best time to pay attention is now.</p>
           </div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="faq-q-text">What kinds of clients do you work with?</span>
-            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
-          </button>
-          <div class="faq-answer">
-            <p>We work with startups, early-stage founders, growing businesses, and organizations looking to digitize or automate. Whether you have a rough idea or a detailed spec, we can help you build it.</p>
-          </div>
-        </div>
       </div>
 
-      <!-- SERVICES -->
-      <div class="faq-group reveal" data-group="services">
-        <div class="faq-group-title">Services</div>
+      <!-- PRODUCTS -->
+      <div class="faq-group reveal" data-group="products">
+        <div class="faq-group-title">Products</div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">What services does AqiNode offer?</span>
+            <span class="faq-q-text">What products is AqiNode building?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>We offer six core service areas:</p>
+            <p>Our current product lineup includes:</p>
             <ul>
-              <li>Web & Mobile Application Development</li>
-              <li>Custom Software Solutions</li>
-              <li>Artificial Intelligence (agents, models, pipelines)</li>
-              <li>AI Integration into existing platforms</li>
-              <li>Automation Solutions (workflows, data pipelines)</li>
-              <li>Technical Consulting & Strategy</li>
+              <li><strong>Webyte AI</strong> — an AI-powered website builder that understands you and your business. Build, go live, and manage in real-time.</li>
+              <li><strong>Aven</strong> — an intelligent education platform for assignment management, student progress tracking, and feedback delivery.</li>
+              <li><strong>Auracle</strong> — an AI agent that finds the perfect online tool for any task in seconds, cutting decision-making time dramatically.</li>
+              <li><strong>Vibe Checker</strong> — a web tool that detects whether a webpage was built by a human or generated by AI.</li>
             </ul>
+            <p>More products are in development. Our roadmap is active.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">Can you integrate AI into my existing product?</span>
+            <span class="faq-q-text">Are your products free to use?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Absolutely. AI integration is one of our strongest areas. We can add chatbots, recommendation engines, semantic search, summarization, and more to your existing web app, platform, or internal tool — without disrupting what's already working.</p>
+            <p>Pricing varies by product. Some tools like Vibe Checker are free. Others like Webyte AI and Aven are in waitlist or early-access phases with pricing to be announced. We'll always offer accessible entry points — we believe in building products people can actually use.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">Do you build mobile apps?</span>
+            <span class="faq-q-text">How do I get early access to your products?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Yes. We build mobile-first web apps and cross-platform mobile applications. We prioritize PWAs (Progressive Web Apps) for most use cases as they're faster to ship and maintain, but we can also build native and cross-platform apps depending on your requirements.</p>
+            <p>Join the waitlist on the relevant product page. Early access users get first access, influence over features, and often locked-in pricing. You can also follow us on X at <a href="https://x.com/OllyVerse" target="_blank" rel="noopener">@OllyVerse</a> for launch announcements.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">Can you help with just the design, not the code?</span>
+            <span class="faq-q-text">What problem does AqiNode's ecosystem solve?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Yes, we can handle UX/UI design as a standalone engagement. We deliver wireframes, high-fidelity mockups, and design systems that your team can implement. Reach out and describe what you need.</p>
+            <p>The digital world is full of disconnected tools, manual workflows, and systems that don't think. AqiNode builds products that are intelligent by default — systems that adapt, automate, and scale. We're removing friction from how people build, learn, and work online.</p>
           </div>
         </div>
+
       </div>
 
-      <!-- PROCESS -->
-      <div class="faq-group reveal" data-group="process">
-        <div class="faq-group-title">Process</div>
+      <!-- VISION -->
+      <div class="faq-group reveal" data-group="vision">
+        <div class="faq-group-title">Vision</div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">How does the engagement process work?</span>
+            <span class="faq-q-text">What is AqiNode's long-term vision?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Our typical process is: (1) Discovery call to understand your needs, (2) Scoping and proposal, (3) Design and architecture, (4) Development with regular check-ins, (5) Testing & QA, (6) Deployment, (7) Handoff + optional ongoing support. We keep you in the loop at every stage.</p>
+            <p>We're building toward a future where AqiNode is a globally recognized technology ecosystem — a company that owns and operates multiple high-impact products used by millions. The same way Google started with search and expanded into every layer of digital life, we're starting with focused AI products and expanding systematically. The goal is scale, reach, and lasting relevance.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">How long does a project typically take?</span>
+            <span class="faq-q-text">Why does AqiNode focus on AI?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Timelines depend heavily on project scope. A simple web app or landing product could take 2–4 weeks. A full SaaS platform with AI features typically takes 6–12 weeks. We'll give you a clear timeline estimate during scoping. We don't rush — we ship right.</p>
+            <p>AI isn't a trend for us — it's the foundation. Every product we build is designed to be intelligent from the ground up. We believe the next generation of software won't just respond to users — it'll anticipate them, learn from them, and work for them autonomously. That's the layer we're building on.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">Do you offer post-launch support?</span>
+            <span class="faq-q-text">How does AqiNode plan to compete with large tech companies?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Yes. We offer ongoing retainer and maintenance packages. This includes bug fixes, feature additions, performance monitoring, and technical support. You can also engage us on a project-by-project basis after launch.</p>
+            <p>Speed, focus, and originality. Large companies are slow to move in new directions. We ship fast, stay close to real user needs, and build products that solve problems the giants have overlooked or overcomplicated. We're not trying to copy what already exists — we're building what comes next. Every major tech company started as a small team with a big idea. We're that team.</p>
           </div>
         </div>
 
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="faq-q-text">Will I own the code and intellectual property?</span>
-            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
-          </button>
-          <div class="faq-answer">
-            <p>Yes. Everything we build for you is yours. Upon project completion and final payment, full ownership of the codebase and all associated intellectual property transfers to you. We don't retain any rights or licenses to client work.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRICING -->
-      <div class="faq-group reveal" data-group="pricing">
-        <div class="faq-group-title">Pricing</div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="faq-q-text">How do you charge for projects?</span>
-            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
-          </button>
-          <div class="faq-answer">
-            <p>We typically work with fixed-price project scopes for well-defined projects, and time-and-materials (hourly/weekly retainer) for ongoing or exploratory work. After a discovery conversation, we'll recommend the model that makes the most sense for your situation.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="faq-q-text">Do you have a minimum project size?</span>
-            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
-          </button>
-          <div class="faq-answer">
-            <p>We don't have a hard minimum, but we focus on projects where we can add meaningful value. A good rule of thumb: if it takes more than a weekend to build, it's something we're interested in. For very small requests, we'll point you in the right direction even if we're not the right fit.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span class="faq-q-text">Do you offer any free services or consultations?</span>
-            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
-          </button>
-          <div class="faq-answer">
-            <p>We offer a free initial discovery call to understand your project and see if we're a good fit. No commitment required. After that, paid scoping or consulting engagements are available for more in-depth strategy work. <a href="contact.html">Reach out to book one.</a></p>
-          </div>
-        </div>
       </div>
 
       <!-- TECHNICAL -->
@@ -225,49 +189,96 @@
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">What tech stack do you use?</span>
+            <span class="faq-q-text">What tech stack does AqiNode use?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>We're stack-agnostic — we use what's right for the project. Common tools include:</p>
+            <p>We're stack-flexible — we use the right tool for each product. Our common choices include:</p>
             <ul>
-              <li>Frontend: React, Next.js, Vue, or plain HTML/CSS/JS</li>
-              <li>Backend: Node.js, Python (FastAPI/Django), PHP</li>
-              <li>AI: OpenAI API, Anthropic Claude, HuggingFace, LangChain</li>
+              <li>Frontend: React, Next.js, Vue, plain HTML/CSS/JS</li>
+              <li>Backend: Node.js, Python (FastAPI / Django), PHP</li>
+              <li>AI: OpenAI, Anthropic Claude, HuggingFace, LangChain</li>
               <li>Database: PostgreSQL, MongoDB, Supabase, Firebase</li>
-              <li>Hosting: Vercel, Netlify, Railway, AWS, VPS</li>
+              <li>Infrastructure: Vercel, Netlify, Railway, AWS, VPS</li>
             </ul>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">Can you work with our existing codebase?</span>
+            <span class="faq-q-text">Are your products open source?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Yes. We're comfortable jumping into existing codebases. We'll do a code audit first to understand the architecture, then propose a plan — whether that's adding features, refactoring, or rebuilding certain parts. We don't push rewrites unless they're genuinely warranted.</p>
+            <p>Not currently. Our core products are proprietary. We may open-source certain utilities or components in the future, but the primary product ecosystem is closed-source to protect the integrity and competitive advantage of what we're building.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            <span class="faq-q-text">Do you handle deployment and DevOps?</span>
+            <span class="faq-q-text">How do you handle data and privacy?</span>
             <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
           </button>
           <div class="faq-answer">
-            <p>Yes. We handle full deployment to your preferred cloud provider, including CI/CD pipelines, environment configuration, and infrastructure setup. We can also set up monitoring and alerting so you know about issues before your users do.</p>
+            <p>Privacy is a design principle, not a checkbox. We collect only what's necessary, never sell user data, and implement appropriate security measures across all our products. Read our full <a href="privacy.html">Privacy Policy</a> for details.</p>
           </div>
         </div>
+
+      </div>
+
+      <!-- COLLABORATE -->
+      <div class="faq-group reveal" data-group="collab">
+        <div class="faq-group-title">Collaborate</div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-q-text">Can I partner with AqiNode?</span>
+            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. We're open to partnerships that align with our mission — integrations, co-building, distribution partnerships, or strategic alliances. If you're building something that complements what we're doing, let's talk. Reach out via the contact page.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-q-text">Do you take on client projects?</span>
+            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Selectively. We're primarily a product company, but we occasionally collaborate on external builds that are technically interesting or strategically aligned with our ecosystem. If you have something ambitious in mind, tell us about it — we'll be honest about whether it's a fit.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-q-text">How can I join the AqiNode team?</span>
+            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>We're always interested in people who build things, think big, and move fast. Check our <a href="careers.html">Careers page</a> for open roles. If nothing is listed but you believe you'd add real value, send a speculative application to <a href="mailto:aqinodelabs@gmail.com">aqinodelabs@gmail.com</a> — we read everything.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="faq-q-text">Can I invest in AqiNode?</span>
+            <span class="faq-chevron"><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l4 4 4-4"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>We're not actively fundraising at this stage, but we're open to conversations with the right people. If you're an investor who understands long-term product ecosystems and wants to be part of what we're building early, reach out at <a href="mailto:aqinodelabs@gmail.com">aqinodelabs@gmail.com</a> with the subject line "Investment Inquiry".</p>
+          </div>
+        </div>
+
       </div>
 
       <!-- CTA -->
       <div class="faq-cta reveal">
-        <p class="section-label" style="justify-content:center;margin-bottom:12px;">Still have questions?</p>
-        <h3>Can't find what you're looking for?</h3>
-        <p>We're happy to answer any question directly. Send us a message and we'll get back to you quickly.</p>
+        <p class="section-label" style="justify-content:center;margin-bottom:12px;">Still curious?</p>
+        <h3>Didn't find what you were looking for?</h3>
+        <p>We're a real team and we respond. Send us a message and we'll get back to you directly.</p>
         <div class="actions">
-          <a href="contact.html" class="btn btn-primary">Ask Us Directly</a>
+          <a href="contact.html" class="btn btn-primary">Talk to Us</a>
           <a href="mailto:aqinodelabs@gmail.com" class="btn btn-ghost">aqinodelabs@gmail.com</a>
         </div>
       </div>
@@ -286,7 +297,6 @@
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
         const wasOpen = item.classList.contains('open');
-        // Close all
         document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
         if (!wasOpen) item.classList.add('open');
       });
