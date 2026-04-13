@@ -4,425 +4,487 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AqiNode – Privacy Policy</title>
-
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <script>
+    (function(){
+      var t = localStorage.getItem('aqinode-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #060606; font-family: 'Segoe UI', sans-serif; color: #e2e2e2; }
-  </style>
-</head>
-<body>
+    /* ── Privacy page tokens ── */
+    :root {
+      --prv-accent:        #5ae0c8;
+      --prv-accent-bg:     rgba(90, 224, 200, 0.06);
+      --prv-accent-border: rgba(90, 224, 200, 0.18);
+      --prv-divider:       rgba(255,255,255,0.07);
+      --prv-card-bg:       rgba(255,255,255,0.02);
+      --prv-card-border:   rgba(255,255,255,0.07);
+      --prv-text-body:     var(--text-secondary);
+      --prv-text-strong:   var(--text-primary);
+      --prv-text-muted:    var(--text-muted);
+      --prv-num-bg:        rgba(90,224,200,0.08);
+      --prv-num-border:    rgba(90,224,200,0.15);
+      --prv-btn-color:     #060606;
+    }
+    [data-theme="light"] {
+      --prv-accent:        #0a7c6e;
+      --prv-accent-bg:     rgba(10, 124, 110, 0.07);
+      --prv-accent-border: rgba(10, 124, 110, 0.2);
+      --prv-divider:       rgba(0,0,0,0.08);
+      --prv-card-bg:       rgba(0,0,0,0.02);
+      --prv-card-border:   rgba(0,0,0,0.08);
+      --prv-num-bg:        rgba(10,124,110,0.07);
+      --prv-num-border:    rgba(10,124,110,0.18);
+      --prv-btn-color:     #ffffff;
+    }
 
+    /* ── Layout ── */
+    #privacy-page-content {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 24px 100px;
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      line-height: 1.75;
+    }
 
-
-<div id="privacy-page-content" style="
-  width: 100%;
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 80px 24px 100px;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  color: #e2e2e2;
-  line-height: 1.75;
-">
-
-  <!-- ── PAGE HERO ─────────────────────────────────────────── -->
-  <div style="
-    border-bottom: 1px solid #1e1e1e;
-    padding-bottom: 48px;
-    margin-bottom: 60px;
-  ">
-    <p style="
+    /* ── Hero ── */
+    .prv-hero {
+      border-bottom: 1px solid var(--prv-divider);
+      padding-bottom: 48px;
+      margin-bottom: 60px;
+    }
+    .prv-eyebrow {
       font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #5ae0c8;
+      color: var(--prv-accent);
       margin-bottom: 18px;
       font-weight: 600;
-    ">Legal · Privacy</p>
-
-    <h1 style="
+      font-family: var(--font-mono);
+    }
+    .prv-title {
+      font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 700;
-      color: #ffffff;
+      color: var(--text-primary);
       line-height: 1.15;
       margin-bottom: 20px;
       letter-spacing: -0.5px;
-    ">Privacy Policy</h1>
-
-    <p style="
+    }
+    .prv-subtitle {
       font-size: 16px;
-      color: #888;
+      color: var(--text-secondary);
       max-width: 600px;
-    ">
-      At AqiNode, your privacy isn't an afterthought — it's a design principle.
-      This policy explains what we collect, why we collect it, and how we protect it.
-    </p>
-
-    <div style="
+    }
+    .prv-meta {
       display: flex;
       align-items: center;
       gap: 24px;
       margin-top: 28px;
       flex-wrap: wrap;
-    ">
-      <span id="olvPrivacyLastUpdated" style="
-        font-size: 13px;
-        color: #555;
-      ">Last updated: <strong style="color: #888;">February 2026</strong></span>
+    }
+    .prv-date {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .prv-date strong { color: var(--text-secondary); }
+    .prv-version {
+      display: inline-block;
+      padding: 4px 14px;
+      border: 1px solid var(--prv-accent-border);
+      border-radius: 100px;
+      font-size: 12px;
+      color: var(--prv-accent);
+      background: var(--prv-accent-bg);
+      letter-spacing: 1px;
+      font-family: var(--font-mono);
+    }
 
-      <span style="
-        display: inline-block;
-        padding: 4px 14px;
-        border: 1px solid #1e1e1e;
-        border-radius: 100px;
-        font-size: 12px;
-        color: #5ae0c8;
-        background: rgba(90,224,200,0.05);
-        letter-spacing: 1px;
-      ">v1.0</span>
-    </div>
-  </div>
+    /* ── Intro note ── */
+    .prv-intro-note {
+      background: var(--prv-accent-bg);
+      border-left: 3px solid var(--prv-accent);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-bottom: 60px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .prv-intro-note strong { color: var(--text-primary); }
+    .prv-intro-note a { color: var(--prv-accent); text-decoration: none; }
+    .prv-intro-note a:hover { text-decoration: underline; }
 
-  <!-- ── INTRO NOTE ─────────────────────────────────────────── -->
-  <div style="
-    background: rgba(90,224,200,0.05);
-    border-left: 3px solid #5ae0c8;
-    border-radius: 0 8px 8px 0;
-    padding: 20px 24px;
-    margin-bottom: 60px;
-    font-size: 14px;
-    color: #aaa;
-  ">
-    <strong style="color: #e2e2e2;">Quick summary:</strong>
-    We collect only what we need, we don't sell your data, and we treat every user with respect.
-    Read the full policy below or <a href="mailto:officialAqiNode@outlook.com" style="color: #5ae0c8; text-decoration: none;">contact us</a> with any questions.
-  </div>
+    /* ── Accordion ── */
+    #olvPrivacyAccordion {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    [data-olv-section] {
+      border-bottom: 1px solid var(--prv-divider);
+    }
+    [data-olv-toggle] {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 26px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-align: left;
+      color: var(--text-primary);
+      transition: color var(--t-fast);
+    }
+    [data-olv-toggle]:hover { color: var(--prv-accent); }
+    .prv-toggle-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .prv-num {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--prv-num-bg);
+      border: 1px solid var(--prv-num-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; flex-shrink: 0;
+      font-family: var(--font-mono);
+      color: var(--prv-accent);
+    }
+    .prv-toggle-title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      font-family: var(--font-display);
+    }
+    .prv-icon {
+      font-size: 20px;
+      color: var(--prv-accent);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      font-style: normal;
+      line-height: 1;
+    }
+    [data-olv-body] {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .prv-body-inner {
+      padding: 0 0 28px;
+    }
+    .prv-body-inner p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+    .prv-body-inner p:last-child { margin-bottom: 0; }
+    .prv-body-inner ul {
+      color: var(--text-secondary);
+      font-size: 15px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .prv-body-inner strong { color: var(--text-primary); }
+    .prv-body-inner em { color: var(--text-muted); }
+    .prv-body-inner a { color: var(--prv-accent); text-decoration: none; }
+    .prv-body-inner a:hover { text-decoration: underline; }
+    .prv-note {
+      color: var(--text-muted) !important;
+      font-size: 14px !important;
+    }
 
-  <!-- ── ACCORDION SECTIONS ─────────────────────────────────── -->
-  <div id="olvPrivacyAccordion" style="display: flex; flex-direction: column; gap: 2px;">
-
-    <!-- Each section is an <article> with [data-olv-section] -->
-
-    <article data-olv-section style="border-bottom: 1px solid #161616;">
-      <button data-olv-toggle style="
-        width: 100%;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 26px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        text-align: left;
-        color: #fff;
-      ">
-        <span style="display: flex; align-items: center; gap: 16px;">
-          <span style="
-            width: 32px; height: 32px;
-            border-radius: 8px;
-            background: rgba(90,224,200,0.08);
-            border: 1px solid rgba(90,224,200,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 15px; flex-shrink: 0;
-          ">01</span>
-          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.2px;">Information We Collect</span>
-        </span>
-        <span data-olv-icon style="
-          font-size: 20px; color: #5ae0c8;
-          transition: transform 0.3s ease;
-          flex-shrink: 0;
-          font-style: normal;
-        ">+</span>
-      </button>
-      <div data-olv-body style="
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease, padding 0.3s ease;
-      ">
-        <div style="padding: 0 0 28px;">
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;">We collect information you voluntarily provide when you interact with us. This may include:</p>
-          <ul style="color: #999; font-size: 15px; padding-left: 20px; display: flex; flex-direction: column; gap: 10px;">
-            <li><strong style="color: #ddd;">Contact details</strong> — your name and email address when you submit our contact form or reach out directly.</li>
-            <li><strong style="color: #ddd;">Communication content</strong> — messages, inquiries, or project briefs you send to us.</li>
-            <li><strong style="color: #ddd;">Technical data</strong> — browser type, IP address, and pages visited, collected automatically through standard web analytics.</li>
-            <li><strong style="color: #ddd;">Employment information</strong> — CVs or application details if you apply for a position via our Careers page.</li>
-          </ul>
-          <p style="color: #666; font-size: 14px; margin-top: 18px;">We do <em>not</em> collect sensitive personal data such as payment information, government IDs, or biometric data.</p>
-        </div>
-      </div>
-    </article>
-
-    <article data-olv-section style="border-bottom: 1px solid #161616;">
-      <button data-olv-toggle style="
-        width: 100%; background: none; border: none; cursor: pointer;
-        padding: 26px 0; display: flex; align-items: center;
-        justify-content: space-between; gap: 16px; text-align: left; color: #fff;
-      ">
-        <span style="display: flex; align-items: center; gap: 16px;">
-          <span style="
-            width: 32px; height: 32px; border-radius: 8px;
-            background: rgba(90,224,200,0.08); border: 1px solid rgba(90,224,200,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 15px; flex-shrink: 0;
-          ">02</span>
-          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.2px;">How We Use Your Information</span>
-        </span>
-        <span data-olv-icon style="font-size: 20px; color: #5ae0c8; transition: transform 0.3s ease; flex-shrink: 0; font-style: normal;">+</span>
-      </button>
-      <div data-olv-body style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;">
-        <div style="padding: 0 0 28px;">
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;">Any information collected is used solely to:</p>
-          <ul style="color: #999; font-size: 15px; padding-left: 20px; display: flex; flex-direction: column; gap: 10px;">
-            <li>Respond to your enquiries and provide the services you requested.</li>
-            <li>Improve our website experience and understand how users navigate our content.</li>
-            <li>Process and evaluate job applications submitted through our Careers page.</li>
-            <li>Send operational updates relevant to your interaction with us (no spam, ever).</li>
-          </ul>
-          <p style="color: #666; font-size: 14px; margin-top: 18px;">We will never use your information for automated profiling or unsolicited marketing without your explicit consent.</p>
-        </div>
-      </div>
-    </article>
-
-    <article data-olv-section style="border-bottom: 1px solid #161616;">
-      <button data-olv-toggle style="
-        width: 100%; background: none; border: none; cursor: pointer;
-        padding: 26px 0; display: flex; align-items: center;
-        justify-content: space-between; gap: 16px; text-align: left; color: #fff;
-      ">
-        <span style="display: flex; align-items: center; gap: 16px;">
-          <span style="
-            width: 32px; height: 32px; border-radius: 8px;
-            background: rgba(90,224,200,0.08); border: 1px solid rgba(90,224,200,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 15px; flex-shrink: 0;
-          ">03</span>
-          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.2px;">Data Sharing & Third Parties</span>
-        </span>
-        <span data-olv-icon style="font-size: 20px; color: #5ae0c8; transition: transform 0.3s ease; flex-shrink: 0; font-style: normal;">+</span>
-      </button>
-      <div data-olv-body style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;">
-        <div style="padding: 0 0 28px;">
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;"><strong style="color: #ddd;">We do not sell, rent, or trade your personal data.</strong> Full stop.</p>
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;">We may share data with trusted third-party services strictly for operational purposes — such as web hosting, email delivery, or analytics. These providers are bound by their own privacy standards and are not permitted to use your data for any purpose beyond the service they provide to us.</p>
-          <p style="color: #999; font-size: 15px;">We may disclose information if required by law or to protect the rights and safety of AqiNode and its users.</p>
-        </div>
-      </div>
-    </article>
-
-    <article data-olv-section style="border-bottom: 1px solid #161616;">
-      <button data-olv-toggle style="
-        width: 100%; background: none; border: none; cursor: pointer;
-        padding: 26px 0; display: flex; align-items: center;
-        justify-content: space-between; gap: 16px; text-align: left; color: #fff;
-      ">
-        <span style="display: flex; align-items: center; gap: 16px;">
-          <span style="
-            width: 32px; height: 32px; border-radius: 8px;
-            background: rgba(90,224,200,0.08); border: 1px solid rgba(90,224,200,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 15px; flex-shrink: 0;
-          ">04</span>
-          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.2px;">Cookies & Tracking</span>
-        </span>
-        <span data-olv-icon style="font-size: 20px; color: #5ae0c8; transition: transform 0.3s ease; flex-shrink: 0; font-style: normal;">+</span>
-      </button>
-      <div data-olv-body style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;">
-        <div style="padding: 0 0 28px;">
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;">Our website may use minimal cookies to support core site functionality and understand aggregate traffic patterns. We do not use invasive tracking, cross-site tracking scripts, or third-party advertising cookies.</p>
-          <p style="color: #999; font-size: 15px;">You may configure your browser to reject or delete cookies at any time. Doing so will not prevent you from using our site, though some features may behave differently.</p>
-        </div>
-      </div>
-    </article>
-
-    <article data-olv-section style="border-bottom: 1px solid #161616;">
-      <button data-olv-toggle style="
-        width: 100%; background: none; border: none; cursor: pointer;
-        padding: 26px 0; display: flex; align-items: center;
-        justify-content: space-between; gap: 16px; text-align: left; color: #fff;
-      ">
-        <span style="display: flex; align-items: center; gap: 16px;">
-          <span style="
-            width: 32px; height: 32px; border-radius: 8px;
-            background: rgba(90,224,200,0.08); border: 1px solid rgba(90,224,200,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 15px; flex-shrink: 0;
-          ">05</span>
-          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.2px;">Data Security</span>
-        </span>
-        <span data-olv-icon style="font-size: 20px; color: #5ae0c8; transition: transform 0.3s ease; flex-shrink: 0; font-style: normal;">+</span>
-      </button>
-      <div data-olv-body style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;">
-        <div style="padding: 0 0 28px;">
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;">We implement appropriate technical and organisational measures to protect your personal information from unauthorised access, alteration, disclosure, or destruction.</p>
-          <p style="color: #999; font-size: 15px;">However, no method of transmission over the internet is completely secure. While we strive to protect your data using industry-standard practices, we cannot guarantee absolute security. We encourage users to exercise care when sharing personal information online.</p>
-        </div>
-      </div>
-    </article>
-
-    <article data-olv-section style="border-bottom: 1px solid #161616;">
-      <button data-olv-toggle style="
-        width: 100%; background: none; border: none; cursor: pointer;
-        padding: 26px 0; display: flex; align-items: center;
-        justify-content: space-between; gap: 16px; text-align: left; color: #fff;
-      ">
-        <span style="display: flex; align-items: center; gap: 16px;">
-          <span style="
-            width: 32px; height: 32px; border-radius: 8px;
-            background: rgba(90,224,200,0.08); border: 1px solid rgba(90,224,200,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 15px; flex-shrink: 0;
-          ">06</span>
-          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.2px;">Data Retention</span>
-        </span>
-        <span data-olv-icon style="font-size: 20px; color: #5ae0c8; transition: transform 0.3s ease; flex-shrink: 0; font-style: normal;">+</span>
-      </button>
-      <div data-olv-body style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;">
-        <div style="padding: 0 0 28px;">
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;">We retain personal data only for as long as necessary to fulfil the purpose it was collected for, or as required by applicable law.</p>
-          <p style="color: #999; font-size: 15px;">Contact form submissions are typically retained for up to 12 months. Job applications are held for the duration of the recruitment process and deleted thereafter unless you give consent for us to retain them longer.</p>
-          <p style="color: #999; font-size: 15px; margin-top: 16px;">You may request deletion of your data at any time by contacting us at <a href="mailto:officialAqiNode@outlook.com" style="color: #5ae0c8; text-decoration: none;">officialAqiNode@outlook.com</a>.</p>
-        </div>
-      </div>
-    </article>
-
-    <article data-olv-section style="border-bottom: 1px solid #161616;">
-      <button data-olv-toggle style="
-        width: 100%; background: none; border: none; cursor: pointer;
-        padding: 26px 0; display: flex; align-items: center;
-        justify-content: space-between; gap: 16px; text-align: left; color: #fff;
-      ">
-        <span style="display: flex; align-items: center; gap: 16px;">
-          <span style="
-            width: 32px; height: 32px; border-radius: 8px;
-            background: rgba(90,224,200,0.08); border: 1px solid rgba(90,224,200,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 15px; flex-shrink: 0;
-          ">07</span>
-          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.2px;">Your Rights</span>
-        </span>
-        <span data-olv-icon style="font-size: 20px; color: #5ae0c8; transition: transform 0.3s ease; flex-shrink: 0; font-style: normal;">+</span>
-      </button>
-      <div data-olv-body style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;">
-        <div style="padding: 0 0 28px;">
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;">You have the right to:</p>
-          <ul style="color: #999; font-size: 15px; padding-left: 20px; display: flex; flex-direction: column; gap: 10px;">
-
-            <li><strong style="color: #ddd;">Correction</strong> — request that we correct any inaccurate or incomplete information.</li>
-
-            <li><strong style="color: #ddd;">Restriction</strong> — ask us to limit how we process your data in certain circumstances.</li>
-            <li><strong style="color: #ddd;">Portability</strong> — receive your data in a structured, machine-readable format where applicable.</li>
-            <li><strong style="color: #ddd;">Objection</strong> — object to certain types of processing, including direct marketing.</li>
-          </ul>
-
-        </div>
-      </div>
-    </article>
-
-    <article data-olv-section style="border-bottom: 1px solid #161616;">
-      <button data-olv-toggle style="
-        width: 100%; background: none; border: none; cursor: pointer;
-        padding: 26px 0; display: flex; align-items: center;
-        justify-content: space-between; gap: 16px; text-align: left; color: #fff;
-      ">
-        <span style="display: flex; align-items: center; gap: 16px;">
-          <span style="
-            width: 32px; height: 32px; border-radius: 8px;
-            background: rgba(90,224,200,0.08); border: 1px solid rgba(90,224,200,0.15);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 15px; flex-shrink: 0;
-          ">08</span>
-          <span style="font-size: 17px; font-weight: 600; letter-spacing: -0.2px;">Changes to This Policy</span>
-        </span>
-        <span data-olv-icon style="font-size: 20px; color: #5ae0c8; transition: transform 0.3s ease; flex-shrink: 0; font-style: normal;">+</span>
-      </button>
-      <div data-olv-body style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;">
-        <div style="padding: 0 0 28px;">
-          <p style="color: #999; font-size: 15px; margin-bottom: 16px;">We may update this Privacy Policy from time to time as our services evolve or legal requirements change. When we do, we'll revise the "Last updated" date at the top of this page.</p>
-          <p style="color: #999; font-size: 15px;">We encourage you to review this page periodically. Continued use of our website after changes are posted constitutes your acknowledgement of the updated policy.</p>
-        </div>
-      </div>
-    </article>
-
-  </div>
-  <!-- ── END ACCORDION ───────────────────────────────────────── -->
-
-  <!-- ── CONTACT CTA ────────────────────────────────────────── -->
-  <div style="
-    margin-top: 72px;
-    padding: 40px;
-    border: 1px solid #1a1a1a;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.015);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 24px;
-  ">
-    <div>
-      <h3 style="font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px;">Have questions about your privacy?</h3>
-      <p style="font-size: 14px; color: #666; max-width: 400px;">We're happy to clarify anything in this policy or address any concerns you may have.</p>
-    </div>
-    <a href="contact.html" style="
+    /* ── Contact CTA ── */
+    .prv-cta {
+      margin-top: 72px;
+      padding: 40px;
+      border: 1px solid var(--prv-card-border);
+      border-radius: 16px;
+      background: var(--prv-card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .prv-cta h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-family: var(--font-display);
+    }
+    .prv-cta p {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 400px;
+    }
+    .prv-cta-btn {
       display: inline-block;
       padding: 13px 28px;
-      background: #5ae0c8;
-      color: #060606;
+      background: var(--prv-accent);
+      color: var(--prv-btn-color);
       font-weight: 700;
       font-size: 14px;
       border-radius: 8px;
       text-decoration: none;
       letter-spacing: 0.3px;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease;
       white-space: nowrap;
-    " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Get In Touch</a>
+      font-family: var(--font-body);
+    }
+    .prv-cta-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+
+  <div data-component="navbar"></div>
+
+  <br /><br />
+
+  <div id="privacy-page-content">
+
+    <!-- ── PAGE HERO ── -->
+    <div class="prv-hero">
+      <p class="prv-eyebrow">Legal · Privacy</p>
+      <h1 class="prv-title">Privacy Policy</h1>
+      <p class="prv-subtitle">
+        At AqiNode, your privacy isn't an afterthought — it's a design principle.
+        This policy explains what we collect, why we collect it, and how we protect it.
+      </p>
+      <div class="prv-meta">
+        <span class="prv-date">Last updated: <strong>April 2026</strong></span>
+        <span class="prv-version">v1.0</span>
+      </div>
+    </div>
+
+    <!-- ── INTRO NOTE ── -->
+    <div class="prv-intro-note">
+      <strong>Quick summary:</strong>
+      We collect only what we need, we don't sell your data, and we treat every user with respect.
+      Read the full policy below or <a href="contact.html">contact us</a> with any questions.
+    </div>
+
+    <!-- ── ACCORDION ── -->
+    <div id="olvPrivacyAccordion">
+
+      <article data-olv-section>
+        <button data-olv-toggle>
+          <span class="prv-toggle-left">
+            <span class="prv-num">01</span>
+            <span class="prv-toggle-title">Information We Collect</span>
+          </span>
+          <span data-olv-icon class="prv-icon">+</span>
+        </button>
+        <div data-olv-body>
+          <div class="prv-body-inner">
+            <p>We collect information you voluntarily provide when you interact with us. This may include:</p>
+            <ul>
+              <li><strong>Contact details</strong> — your name and email address when you submit our contact form or reach out directly.</li>
+              <li><strong>Communication content</strong> — messages, inquiries, or project briefs you send to us.</li>
+              <li><strong>Technical data</strong> — browser type, IP address, and pages visited, collected automatically through standard web analytics.</li>
+              <li><strong>Employment information</strong> — CVs or application details if you apply for a position via our Careers page.</li>
+            </ul>
+            <p class="prv-note">We do <em>not</em> collect sensitive personal data such as payment information, government IDs, or biometric data.</p>
+          </div>
+        </div>
+      </article>
+
+      <article data-olv-section>
+        <button data-olv-toggle>
+          <span class="prv-toggle-left">
+            <span class="prv-num">02</span>
+            <span class="prv-toggle-title">How We Use Your Information</span>
+          </span>
+          <span data-olv-icon class="prv-icon">+</span>
+        </button>
+        <div data-olv-body>
+          <div class="prv-body-inner">
+            <p>We use the information we collect solely to operate and improve our services. Specifically:</p>
+            <ul>
+              <li><strong>To respond to inquiries</strong> — when you contact us, we use your details to reply and follow up.</li>
+              <li><strong>To process applications</strong> — if you apply for a role, your information is used to evaluate your candidacy.</li>
+              <li><strong>To improve our website</strong> — anonymised analytics help us understand how visitors use the site so we can make it better.</li>
+              <li><strong>To comply with legal obligations</strong> — where required by law, we may process or retain certain data.</li>
+            </ul>
+            <p class="prv-note">We do not use your data for advertising, profiling, or any automated decision-making.</p>
+          </div>
+        </div>
+      </article>
+
+      <article data-olv-section>
+        <button data-olv-toggle>
+          <span class="prv-toggle-left">
+            <span class="prv-num">03</span>
+            <span class="prv-toggle-title">Sharing Your Information</span>
+          </span>
+          <span data-olv-icon class="prv-icon">+</span>
+        </button>
+        <div data-olv-body>
+          <div class="prv-body-inner">
+            <p>We do not sell, rent, or trade your personal information to any third party. We may share data only in these limited circumstances:</p>
+            <ul>
+              <li><strong>Service providers</strong> — trusted tools we use to run our operations (e.g. email delivery, analytics), who are contractually bound to protect your data.</li>
+              <li><strong>Legal requirements</strong> — if required by law, court order, or government authority.</li>
+              <li><strong>Business transfers</strong> — in the unlikely event of a merger or acquisition, your data may be transferred as part of that process, with appropriate notice provided.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article data-olv-section>
+        <button data-olv-toggle>
+          <span class="prv-toggle-left">
+            <span class="prv-num">04</span>
+            <span class="prv-toggle-title">Cookies & Tracking</span>
+          </span>
+          <span data-olv-icon class="prv-icon">+</span>
+        </button>
+        <div data-olv-body>
+          <div class="prv-body-inner">
+            <p>Our website may use cookies and similar tracking technologies to enhance your experience. These include:</p>
+            <ul>
+              <li><strong>Essential cookies</strong> — necessary for the website to function correctly (e.g. theme preference).</li>
+              <li><strong>Analytics cookies</strong> — help us understand traffic patterns and improve the site. These are anonymised.</li>
+            </ul>
+            <p>You can control or disable cookies through your browser settings. Disabling essential cookies may affect site functionality such as theme persistence.</p>
+          </div>
+        </div>
+      </article>
+
+      <article data-olv-section>
+        <button data-olv-toggle>
+          <span class="prv-toggle-left">
+            <span class="prv-num">05</span>
+            <span class="prv-toggle-title">Data Security</span>
+          </span>
+          <span data-olv-icon class="prv-icon">+</span>
+        </button>
+        <div data-olv-body>
+          <div class="prv-body-inner">
+            <p>We implement appropriate technical and organisational measures to protect your personal information from unauthorised access, alteration, disclosure, or destruction.</p>
+            <p>However, no method of transmission over the internet is completely secure. While we strive to protect your data using industry-standard practices, we cannot guarantee absolute security. We encourage users to exercise care when sharing personal information online.</p>
+          </div>
+        </div>
+      </article>
+
+      <article data-olv-section>
+        <button data-olv-toggle>
+          <span class="prv-toggle-left">
+            <span class="prv-num">06</span>
+            <span class="prv-toggle-title">Data Retention</span>
+          </span>
+          <span data-olv-icon class="prv-icon">+</span>
+        </button>
+        <div data-olv-body>
+          <div class="prv-body-inner">
+            <p>We retain personal data only for as long as necessary to fulfil the purpose it was collected for, or as required by applicable law.</p>
+            <p>Contact form submissions are typically retained for up to 12 months. Job applications are held for the duration of the recruitment process and deleted thereafter unless you give consent for us to retain them longer.</p>
+            <p>You may request deletion of your data at any time by contacting us at <a href="mailto:aqinodelabs@gmail.com">aqinodelabs@gmail.com</a>.</p>
+          </div>
+        </div>
+      </article>
+
+      <article data-olv-section>
+        <button data-olv-toggle>
+          <span class="prv-toggle-left">
+            <span class="prv-num">07</span>
+            <span class="prv-toggle-title">Your Rights</span>
+          </span>
+          <span data-olv-icon class="prv-icon">+</span>
+        </button>
+        <div data-olv-body>
+          <div class="prv-body-inner">
+            <p>You have the right to:</p>
+            <ul>
+              <li><strong>Access</strong> — request a copy of the personal data we hold about you.</li>
+              <li><strong>Correction</strong> — request that we correct any inaccurate or incomplete information.</li>
+              <li><strong>Deletion</strong> — ask us to delete your personal data where there is no legitimate reason for us to continue processing it.</li>
+              <li><strong>Restriction</strong> — ask us to limit how we process your data in certain circumstances.</li>
+              <li><strong>Portability</strong> — receive your data in a structured, machine-readable format where applicable.</li>
+              <li><strong>Objection</strong> — object to certain types of processing, including direct marketing.</li>
+            </ul>
+            <p>To exercise any of these rights, contact us at <a href="mailto:aqinodelabs@gmail.com">aqinodelabs@gmail.com</a>.</p>
+          </div>
+        </div>
+      </article>
+
+      <article data-olv-section>
+        <button data-olv-toggle>
+          <span class="prv-toggle-left">
+            <span class="prv-num">08</span>
+            <span class="prv-toggle-title">Changes to This Policy</span>
+          </span>
+          <span data-olv-icon class="prv-icon">+</span>
+        </button>
+        <div data-olv-body>
+          <div class="prv-body-inner">
+            <p>We may update this Privacy Policy from time to time as our services evolve or legal requirements change. When we do, we'll revise the "Last updated" date at the top of this page.</p>
+            <p>We encourage you to review this page periodically. Continued use of our website after changes are posted constitutes your acknowledgement of the updated policy.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <!-- ── END ACCORDION ── -->
+
+    <!-- ── CONTACT CTA ── -->
+    <div class="prv-cta">
+      <div>
+        <h3>Have questions about your privacy?</h3>
+        <p>We're happy to clarify anything in this policy or address any concerns you may have.</p>
+      </div>
+      <a href="contact.html" class="prv-cta-btn">Get In Touch</a>
+    </div>
+
   </div>
 
-</div>
-<!-- ============================================================
-     END: PRIVACY PAGE CONTENT DIV
-     ============================================================ -->
-
-<!-- ── ACCORDION JAVASCRIPT ───────────────────────────────────
-     Scoped entirely to [data-olv-section] elements.
-     Safe to include alongside existing page scripts.
-──────────────────────────────────────────────────────────────── -->
-<script>
-(function () {
-  'use strict';
-
-  var sections = document.querySelectorAll('[data-olv-section]');
-
-  sections.forEach(function (section) {
-    var toggle = section.querySelector('[data-olv-toggle]');
-    var body   = section.querySelector('[data-olv-body]');
-    var icon   = section.querySelector('[data-olv-icon]');
-
-    if (!toggle || !body || !icon) return;
-
-    toggle.addEventListener('click', function () {
-      var isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
-
-      // Close all other open sections (optional single-open behaviour)
-      sections.forEach(function (s) {
-        var b = s.querySelector('[data-olv-body]');
-        var i = s.querySelector('[data-olv-icon]');
-        if (b && i) {
-          b.style.maxHeight = '0px';
-          i.textContent = '+';
-          i.style.transform = 'rotate(0deg)';
+  <!-- ── ACCORDION JS ── -->
+  <script>
+  (function () {
+    'use strict';
+    var sections = document.querySelectorAll('[data-olv-section]');
+    sections.forEach(function (section) {
+      var toggle = section.querySelector('[data-olv-toggle]');
+      var body   = section.querySelector('[data-olv-body]');
+      var icon   = section.querySelector('[data-olv-icon]');
+      if (!toggle || !body || !icon) return;
+      toggle.addEventListener('click', function () {
+        var isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+        sections.forEach(function (s) {
+          var b = s.querySelector('[data-olv-body]');
+          var i = s.querySelector('[data-olv-icon]');
+          if (b && i) {
+            b.style.maxHeight = '0px';
+            i.textContent = '+';
+            i.style.transform = 'rotate(0deg)';
+          }
+        });
+        if (!isOpen) {
+          body.style.maxHeight = body.scrollHeight + 'px';
+          icon.textContent = '−';
+          icon.style.transform = 'rotate(180deg)';
         }
       });
-
-      if (!isOpen) {
-        body.style.maxHeight = body.scrollHeight + 'px';
-        icon.textContent = '−';
-        icon.style.transform = 'rotate(0deg)';
-      }
     });
-  });
-})();
-</script>
-<script src="pnf.js"></script>
+  })();
+  </script>
+
+  <div data-component="footer"></div>
+  <script src="js/core.js"></script>
+  <script>AqiNode.mount();</script>
+
 </body>
 </html>
