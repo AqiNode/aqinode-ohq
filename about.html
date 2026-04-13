@@ -11,7 +11,125 @@
   <link rel="stylesheet" href="css/about.css">
   <!-- Font Awesome 6 CDN for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  
+  
+  
+     <style>
+     .solar-system {
+  position: relative;
+  height: 500px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.solar-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #4da3ff, #005eff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+  box-shadow: 0 0 40px rgba(0, 94, 255, 0.7);
+  z-index: 10;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: spin linear infinite;
+}
+
+.orbit-inner {
+  width: 240px;
+  height: 240px;
+  animation-duration: 10s;
+}
+
+.orbit-mid {
+  width: 320px;
+  height: 320px;
+  animation-duration: 16s;
+}
+
+.orbit-outer {
+  width: 390px;
+  height: 390px;
+  animation-duration: 22s;
+}
+
+.orbit-inner,
+.orbit-mid,
+.orbit-outer {
+  transform: translate(-50%, -50%);
+}
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 66px;
+  height: 66px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #4da3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4da3ff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planet:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 0 15px rgba(77, 163, 255, 0.8);
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Tooltip */
+.planet-tooltip {
+  position: absolute;
+  padding: 6px 10px;
+  background: #0b1d3a;
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 20;
+}
+   </style> 
 </head>
+
+
+
+
 <body>
 
   <div data-component="navbar"></div>
@@ -48,14 +166,18 @@
     </div>
   </section>
 
-<div class="nodes-visual">
+<!-- <div class="nodes-visual">
   <div class="nodes-orbit-wrapper">
     <svg class="nodes-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
-      <!-- Connection lines -->
+  
+  
+  
       <line class="node-line" x1="160" y1="40" x2="40" y2="260"/>
       <line class="node-line" x1="160" y1="40" x2="280" y2="260"/>
       <line class="node-line" x1="40" y1="260" x2="280" y2="260"/>
-      <!-- Traveling signal dots -->
+    
+    
+    
       <circle class="signal-dot" r="4">
         <animateMotion dur="2s" repeatCount="indefinite">
           <mpath href="#path1"/>
@@ -71,7 +193,9 @@
           <mpath href="#path3"/>
         </animateMotion>
       </circle>
-      <!-- Hidden paths for signal travel -->
+    
+    
+    
       <defs>
         <path id="path1" d="M160,40 L280,260"/>
         <path id="path2" d="M280,260 L40,260"/>
@@ -104,6 +228,47 @@
     </div>
   </div>
 </div>
+ -->
+
+
+
+
+
+<section class="solar-system" id="AqiNode-solar-system">
+ 
+  <div class="solar-core">
+    <span>AqiNode</span>
+  </div>
+
+  <!-- Inner Orbit -->
+  <div class="orbit orbit-inner">
+    
+    <div class="planet" data-label="CSS">
+                <i class="fa-solid fa-globe"></i>
+    <br />  Web</div>
+  </div>
+
+  <!-- Mid Orbit -->
+  <div class="orbit orbit-mid">
+    
+    <div class="planet" data-label="Auth">
+                <i class="fa-solid fa-brain"></i>
+    <br />  AI</div>
+  </div>
+
+  <!-- Outer Orbit -->
+  <div class="orbit orbit-outer">
+    
+    <div class="planet" data-label="Automation">
+                <i class="fa-solid fa-box"></i>SAAS</div>
+  </div>
+
+  <div class="planet-tooltip" id="planetTooltip"></div>
+</section>
+
+
+
+
   <!-- ── SERVICES DETAIL ── -->
   <section class="services-detail">
     <div class="container">
