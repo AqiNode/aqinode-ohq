@@ -71,15 +71,14 @@ AqiNode.register('navbar', () => `
     <a href="about.html">About</a>
     <a href="products.html">Products</a>
     <a href="careers.html">Careers</a>
+    <a href="#">Chat Arc AI (Coming Soon)</a>
+    <a href="#">Visit Our Store (Coming Soon)</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
     <a href="terms.html">Terms and Conditions</a>
     <a href="privacy.html">Privacy Policy</a>
     
-     <a href="#">Chat Arc AI (Coming Soon)</a>   
-    <button class="theme-toggle theme-toggle--mobile" id="themeToggleMobile" aria-label="Toggle theme">
-
-    </button>
+   
   </div>
 `);
 
@@ -136,7 +135,7 @@ AqiNode.register('footer', () => `
       </div>
       <div class="footer-bottom">
         <p>© <span id="footerYear"></span> <span>AqiNode</span>. All rights reserved.</p>
-        <p>Built with <span>♥</span> — aqinodelabs@gmail.com</p>
+        <br>
       </div>
     </div>
   </footer>
