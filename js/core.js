@@ -67,7 +67,7 @@ AqiNode.register('navbar', () => `
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu"></button>
-    <a href="index.html">Home</a>
+    <a href="../">Home</a>
     <a href="about.html">About</a>
     <a href="products.html">Products</a>
     <a href="careers.html">Careers</a>
