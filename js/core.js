@@ -42,7 +42,7 @@ AqiNode.register('navbar', () => `
         </a>
 
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="../">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="careers.html">Careers</a></li>
