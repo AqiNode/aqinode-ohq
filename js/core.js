@@ -15,7 +15,11 @@ const AqiNode = {
     document.querySelectorAll('[data-component]').forEach(el => {
       const name = el.dataset.component;
       if (this._components[name]) {
-        el.outerHTML = this._components[name](el.dataset);
+        try {
+          el.outerHTML = this._components[name](el.dataset);
+        } catch (err) {
+          console.error(`[AqiNode] Error mounting component "${name}":`, err);
+        }
       }
     });
     this._postMount();
@@ -27,6 +31,37 @@ const AqiNode = {
     initReveal();
     markActiveNav();
     initTheme();
+    this._initComingSoon();
+  },
+
+  _initComingSoon() {
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a[href="#"], .coming-soon');
+      if (link && !link.classList.contains('no-toast')) {
+        e.preventDefault();
+        this.showToast('🚀 This feature is coming soon!');
+      }
+    });
+  },
+
+  showToast(message) {
+    document.querySelectorAll('.toast').forEach(t => t.remove());
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = `<span class="toast-dot"></span>${message}`;
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => toast.classList.add('show'));
+    });
+
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 350);
+    }, 3000);
   }
 };
 
@@ -67,7 +102,7 @@ AqiNode.register('navbar', () => `
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu"></button>
-    <a href="../">Home</a>
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="products.html">Products</a>
     <a href="careers.html">Careers</a>
@@ -267,7 +302,7 @@ function initTheme() {
   document.documentElement.dataset.theme = resolved;
 
   if (!saved) {
-    showToast(resolved === 'dark'
+    AqiNode.showToast(resolved === 'dark'
       ? '🌙 Dark mode detected from your system'
       : '☀️ Light mode detected from your system'
     );
@@ -282,34 +317,15 @@ function initTheme() {
 
     document.documentElement.dataset.theme = next;
     localStorage.setItem('aqinode-theme', next);
-    showToast(next === 'dark' ? '🌙 Switched to dark mode' : '☀️ Switched to light mode');
+    AqiNode.showToast(next === 'dark' ? '🌙 Switched to dark mode' : '☀️ Switched to light mode');
   });
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
     if (localStorage.getItem('aqinode-theme')) return;
     const auto = e.matches ? 'dark' : 'light';
     document.documentElement.dataset.theme = auto;
-    showToast(auto === 'dark' ? '🌙 System switched to dark' : '☀️ System switched to light');
+    AqiNode.showToast(auto === 'dark' ? '🌙 System switched to dark' : '☀️ System switched to light');
   });
-}
-
-// ── TOAST ────────────────────────────────────────────────────
-function showToast(message) {
-  document.querySelectorAll('.toast').forEach(t => t.remove());
-
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.innerHTML = `<span class="toast-dot"></span>${message}`;
-  document.body.appendChild(toast);
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => toast.classList.add('show'));
-  });
-
-  setTimeout(() => {
-    toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 350);
-  }, 3000);
 }
 
 window.AqiNode = AqiNode;
