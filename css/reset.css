@@ -63,6 +63,10 @@
 
 html { scroll-behavior: smooth; font-size: 16px; }
 
+@media (hover: hover) and (min-width: 1025px) {
+  body { cursor: none; }
+}
+
 body {
   font-family: var(--font-body);
   background: var(--bg-primary);
@@ -70,7 +74,6 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  cursor: none;
 }
 
 /* Custom cursor */
@@ -91,9 +94,6 @@ body {
   border: 1.5px solid rgba(0,180,255,0.5);
   transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.12s;
 }
-body:hover #cursor .dot { opacity: 1; }
-a:hover ~ #cursor .ring,
-button:hover ~ #cursor .ring { width: 48px; height: 48px; border-color: var(--accent); }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
@@ -137,7 +137,11 @@ button { cursor: none; border: none; background: none; font-family: inherit; }
   .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; }
 }
 
-@media (max-width: 768px) { body { cursor: auto; } #cursor { display: none; } }
+@media (hover: none), (max-width: 1024px) {
+  body { cursor: auto; }
+  #cursor { display: none; }
+}
+
 
 
 .ripple {
