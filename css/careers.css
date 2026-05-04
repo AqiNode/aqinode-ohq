@@ -33,11 +33,11 @@
   content: '';
   position: absolute; top: 0; left: 50%; transform: translateX(-50%);
   width: 200px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
 }
 .no-roles-box .big-label {
   font-family: var(--font-mono); font-size: 0.75rem;
-  letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--accent-green); text-transform: uppercase;
   margin-bottom: 16px; display: block;
 }
 .no-roles-box h3 {

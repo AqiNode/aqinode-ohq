@@ -12,14 +12,14 @@
 }
 .faq-cat-btn:hover { color: var(--text-primary); border-color: var(--border-accent); background: var(--accent-glow2); }
 .faq-cat-btn.active {
-  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
   color: #fff; border-color: transparent;
 }
 
 .faq-group { margin-bottom: 48px; }
 .faq-group-title {
   font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
-  color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent-green); letter-spacing: 0.1em; text-transform: uppercase;
   margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
 }
 .faq-group-title::after {
@@ -53,8 +53,8 @@
   display: flex; align-items: center; justify-content: center;
   transition: transform var(--t-med), background var(--t-med);
 }
-.faq-chevron svg { width: 10px; height: 10px; stroke: var(--accent); }
-.faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--accent); }
+.faq-chevron svg { width: 10px; height: 10px; stroke: var(--accent-green); }
+.faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--accent-green); }
 .faq-item.open .faq-chevron svg { stroke: #fff; }
 
 .faq-answer {
@@ -75,7 +75,7 @@
 }
 .faq-answer ul li::before {
   content: ''; position: absolute; left: 0; top: 10px;
-  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent-green);
 }
 
 .faq-cta {

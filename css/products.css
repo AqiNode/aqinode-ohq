@@ -15,9 +15,9 @@
 }
 .filter-btn:hover { color: var(--text-primary); border-color: var(--border-accent); background: var(--accent-glow2); }
 .filter-btn.active {
-  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
   color: #fff; border-color: transparent;
-  box-shadow: 0 4px 16px rgba(26,140,255,0.3);
+  box-shadow: 0 4px 16px rgba(0, 210, 106, 0.3);
 }
 
 .projects-grid {
@@ -50,9 +50,9 @@
   font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500;
   color: var(--text-secondary); transition: color var(--t-fast);
 }
-.project-card .card-footer a:hover { color: var(--accent); }
+.project-card .card-footer a:hover { color: var(--accent-green); }
 .project-card .card-footer a.primary-link {
-  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
