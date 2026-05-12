@@ -187,11 +187,26 @@
                 const response = await fetch(API_ENDPOINT, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
+                    body: JSON.stringify({ 
+                        message: text,
+                        history: chatHistory,
+                        context: {
+                            url: window.location.href,
+                            pageTitle: document.title,
+                            referrer: document.referrer,
+                            language: navigator.language,
+                            screen: `${window.screen.width}x${window.screen.height}`,
+                            theme: document.documentElement.dataset.theme || 'light',
+                            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                            timestamp: new Date().toISOString(),
+                            metaDescription: document.querySelector('meta[name="description"]')?.content || "",
+                            metaKeywords: document.querySelector('meta[name="keywords"]')?.content || ""
+                        }
+                    })
                 });
 
                 const data = await response.json();
-                chatMessages.removeChild(loadingWrap);
+                if (chatMessages.contains(loadingWrap)) chatMessages.removeChild(loadingWrap);
 
                 if (data.error) {
                     addMessage('Error: ' + data.error, 'bot');
