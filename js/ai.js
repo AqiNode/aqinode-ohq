@@ -26,7 +26,7 @@
         const chatMessages = document.getElementById('chat-messages');
         const userInput = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
-        const micButton = document.getElementById('mic-button');
+        // const micButton = document.getElementById('mic-button');
         const clearButton = document.getElementById('chat-clear');
         
         const confirmModal = document.getElementById('chat-confirm-modal');
@@ -34,10 +34,11 @@
         const confirmNo = document.getElementById('chat-confirm-no');
 
         let isOpen = false;
-        let isListening = false;
+        // let isListening = false;
         let chatHistory = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 
         // Speech Recognition Setup
+        /*
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         let recognition = null;
         if (SpeechRecognition) {
@@ -69,6 +70,7 @@
         } else {
             micButton.style.display = 'none';
         }
+        */
 
         // Init
         chatToggle.innerHTML = ICONS.message;
@@ -86,11 +88,13 @@
         sendButton.onclick = sendMessage;
         userInput.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
 
+        /*
         micButton.onclick = () => {
             if (!recognition) return;
             if (isListening) recognition.stop();
             else recognition.start();
         };
+        */
 
         clearButton.onclick = (e) => { e.stopPropagation(); showConfirmModal(); };
         confirmNo.onclick = hideConfirmModal;
@@ -244,7 +248,7 @@
                 <div id="chat-messages"></div>
                 <div id="chat-input-area">
                     <input type="text" id="user-input" placeholder="Ask something...">
-                    <button id="mic-button" title="Voice Input">${ICONS.mic}</button>
+                    <!-- <button id="mic-button" title="Voice Input">${ICONS.mic}</button> -->
                     <button id="send-button" title="Send">${ICONS.send}</button>
                 </div>
                 
