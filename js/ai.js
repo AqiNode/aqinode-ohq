@@ -203,7 +203,11 @@
         function speak(text) {
             if (!window.speechSynthesis) return;
             window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
+            
+            // Phonetic replacement for "AqiNode" (pronounced ha-kee-node)
+            const phoneticText = text.replace(/AqiNode/gi, 'AkiNode');
+            
+            const utterance = new SpeechSynthesisUtterance(phoneticText);
             utterance.rate = 1.0;
             utterance.pitch = 1.0;
             window.speechSynthesis.speak(utterance);
