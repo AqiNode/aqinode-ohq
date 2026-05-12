@@ -266,7 +266,9 @@
                     <!-- <button id="mic-button" title="Voice Input">${ICONS.mic}</button> -->
                     <button id="send-button" title="Send">${ICONS.send}</button>
                 </div>
-                
+                <center>
+                <h6>AI CAN MAKE MISTAKES</h6>
+                </center>
                 <div id="chat-confirm-modal">
                     <div class="chat-confirm-content">
                         <p>Clear all chat history?</p>
