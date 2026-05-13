@@ -173,17 +173,29 @@
                     })
                 });
 
-                const data = await response.json();
                 if (chatMessages.contains(loadingWrap)) chatMessages.removeChild(loadingWrap);
 
+                if (!response.ok) {
+                    throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+
                 if (data.error) {
-                    addMessage('Error: ' + data.error, 'bot');
+                    addMessage('Error: ' + data.error, 'bot', false);
                 } else {
                     addMessage(data.response, 'bot');
                 }
             } catch (error) {
+                console.error('AI Chat Error:', error);
                 if (chatMessages.contains(loadingWrap)) chatMessages.removeChild(loadingWrap);
-                addMessage('Error: Could not connect to the server.', 'bot');
+                
+                let errorMsg = 'Error: Could not connect to the server.';
+                if (error.message && !error.message.includes('fetch')) {
+                    errorMsg = `Error: ${error.message}`;
+                }
+                
+                addMessage(errorMsg, 'bot', false);
             }
         }
 
