@@ -7,7 +7,6 @@
     const STORAGE_KEY = "aqinode_chat_v1";
     const API_ENDPOINT = 'https://aqinode-support-bot.onrender.com/chat.php';
     
-    // Icons
     const ICONS = {
         message: `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>`,
         close: `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`,
@@ -26,51 +25,13 @@
         const chatMessages = document.getElementById('chat-messages');
         const userInput = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
-        // const micButton = document.getElementById('mic-button');
         const clearButton = document.getElementById('chat-clear');
-        
         const confirmModal = document.getElementById('chat-confirm-modal');
         const confirmYes = document.getElementById('chat-confirm-yes');
         const confirmNo = document.getElementById('chat-confirm-no');
 
         let isOpen = false;
-        // let isListening = false;
         let chatHistory = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-
-        // Speech Recognition Setup
-        /*
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        let recognition = null;
-        if (SpeechRecognition) {
-            recognition = new SpeechRecognition();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'en-US';
-
-            recognition.onstart = () => {
-                isListening = true;
-                micButton.classList.add('listening');
-            };
-
-            recognition.onend = () => {
-                isListening = false;
-                micButton.classList.remove('listening');
-            };
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                userInput.value = transcript;
-                sendMessage();
-            };
-
-            recognition.onerror = (event) => {
-                console.error('Speech recognition error:', event.error);
-                micButton.classList.remove('listening');
-            };
-        } else {
-            micButton.style.display = 'none';
-        }
-        */
 
         // Init
         chatToggle.innerHTML = ICONS.message;
@@ -86,15 +47,21 @@
         document.addEventListener('click', () => { if (isOpen) toggleChat(false); });
 
         sendButton.onclick = sendMessage;
-        userInput.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
 
-        /*
-        micButton.onclick = () => {
-            if (!recognition) return;
-            if (isListening) recognition.stop();
-            else recognition.start();
+        userInput.onkeydown = (e) => {
+            if (e.key === 'Enter') {
+                const isMobile = window.matchMedia('(pointer: coarse)').matches;
+                if (isMobile) {
+                    // On mobile: Enter = newline (default textarea behavior), nothing to override
+                    return;
+                }
+                // On desktop: Enter sends, Shift+Enter = newline
+                if (!e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            }
         };
-        */
 
         clearButton.onclick = (e) => { e.stopPropagation(); showConfirmModal(); };
         confirmNo.onclick = hideConfirmModal;
@@ -173,6 +140,7 @@
 
             addMessage(text, 'user');
             userInput.value = '';
+            userInput.style.height = 'auto'; // reset textarea height after send
 
             const loadingDiv = document.createElement('div');
             loadingDiv.classList.add('message', 'bot-message', 'loading');
@@ -222,10 +190,7 @@
         function speak(text) {
             if (!window.speechSynthesis) return;
             window.speechSynthesis.cancel();
-            
-            // Phonetic replacement for "AqiNode" (pronounced ha-kee-node)
             const phoneticText = text.replace(/AqiNode/gi, 'AkiNode');
-            
             const utterance = new SpeechSynthesisUtterance(phoneticText);
             utterance.rate = 1.0;
             utterance.pitch = 1.0;
@@ -262,13 +227,10 @@
                 </div>
                 <div id="chat-messages"></div>
                 <div id="chat-input-area">
-                    <input type="text" id="user-input" placeholder="Ask something...">
-                    <!-- <button id="mic-button" title="Voice Input">${ICONS.mic}</button> -->
+                    <textarea id="user-input" placeholder="Ask something..." rows="1"></textarea>
                     <button id="send-button" title="Send">${ICONS.send}</button>
                 </div>
-                <center>
-                <h6>AI CAN MAKE MISTAKES</h6>
-                </center>
+                <center><h6>AI CAN MAKE MISTAKES</h6></center>
                 <div id="chat-confirm-modal">
                     <div class="chat-confirm-content">
                         <p>Clear all chat history?</p>

@@ -211,24 +211,32 @@
     background: var(--input-bg);
     border: 1px solid var(--glass-border);
     color: var(--chat-text);
-    border-radius: 24px;
+    border-radius: 18px;
     padding: 10px 18px;
     outline: none;
     font-size: 0.95rem;
     transition: border-color 0.2s;
+    resize: none;
+    overflow-y: auto;
+    max-height: 120px;
+    min-height: 40px;
+    line-height: 1.4;
+    font-family: inherit;
+    display: block;
+    box-sizing: border-box;
 }
 
 #user-input:focus {
-    border-color: var(--chat-primary);
+    border-color: ;
 }
 
 /* Buttons */
 #mic-button, #send-button {
-    background: var(--chat-primary);
+    background: ;
     color: white;
     border: none;
     border-radius: 50%;
-    width: 40px;
+    width: ;
     height: 40px;
     display: flex;
     align-items: center;
@@ -260,7 +268,7 @@
 
 #send-button:hover {
     transform: scale(1.1);
-    background: #0056b3;
+    background: ;
 }
 
 .loading {
