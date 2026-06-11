@@ -95,7 +95,7 @@ body {
 #cursor {
   position: fixed; top: 0; left: 0; z-index: 9999;
   pointer-events: none;
-  mix-blend-mode: screen;
+  mix-blend-mode: difference;
 }
 #cursor .dot {
   position: absolute; transform: translate(-50%,-50%);
@@ -150,11 +150,6 @@ button { cursor: none; border: none; background: none; font-family: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; }
-}
-
-@media (hover: none), (max-width: 1024px) {
-  body { cursor: auto; }
-  #cursor { display: none; }
 }
 
 

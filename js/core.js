@@ -218,7 +218,7 @@ AqiNode.register('footer', () => `
 // ── CURSOR ───────────────────────────────────────────────────
 function initCursor() {
   const cursor = document.getElementById('cursor');
-  if (!cursor || window.innerWidth < 768) return;
+  if (!cursor) return;
   const dot = cursor.querySelector('.dot');
   const ring = cursor.querySelector('.ring');
   let mx = 0, my = 0, rx = 0, ry = 0;
