@@ -38,14 +38,35 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "AqiNode",
-  "url": "https://aqinode.click",
-  "logo": "https://aqinode.click/img/logo.png",
-  "sameAs": [
-    "https://x.com/aqinode_hq"
-  ],
-  "description": "AqiNode is a modern tech startup building intelligent web, AI, and software solutions."
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aqinode.click/#organization",
+      "name": "AqiNode",
+      "url": "https://aqinode.click",
+      "logo": "https://aqinode.click/img/logo.png",
+      "image": "https://aqinode.click/og.png",
+      "email": "aqinodelabs@gmail.com",
+      "description": "AqiNode is a modern tech startup building intelligent web, AI, and software solutions.",
+      "sameAs": [
+        "https://x.com/aqinode_hq"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "aqinodelabs@gmail.com",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aqinode.click/#website",
+      "name": "AqiNode",
+      "url": "https://aqinode.click",
+      "description": "AqiNode is a modern tech startup building intelligent web, AI, and software solutions for businesses, creators, and the next generation of builders.",
+      "publisher": { "@id": "https://aqinode.click/#organization" }
+    }
+  ]
 }
 </script>
 

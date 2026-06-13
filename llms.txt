@@ -1,0 +1,35 @@
+# AqiNode
+
+> AqiNode is a product-first technology startup building intelligent web, AI, and software solutions for businesses, creators, and the next generation of builders. We design and ship products at the intersection of AI, automation, and modern infrastructure — built to scale, built to last.
+
+AqiNode is remote-native and distributed across time zones. We are an early-stage company in active build mode, shipping focused AI products and expanding into a broader ecosystem. We build and own our products long-term rather than operating as a freelance shop or traditional agency.
+
+## Pages
+
+- [Home](https://aqinode.click/index.html): Overview of AqiNode — who we are, our core pillars (AI, Web, SaaS), and what we build.
+- [About](https://aqinode.click/about.html): Our model, vision, and a detailed breakdown of every service we offer.
+- [Products](https://aqinode.click/products.html): Selected work and products we've designed, engineered, and shipped.
+- [Careers](https://aqinode.click/careers.html): Open roles and how to join the AqiNode team.
+- [Contact](https://aqinode.click/contact.html): Ways to reach us — email, WhatsApp, X, and a contact form.
+- [FAQ](https://aqinode.click/faq.html): Frequently asked questions about the company, products, vision, and collaboration.
+- [Privacy Policy](https://aqinode.click/privacy.html): How AqiNode collects, uses, and protects data.
+- [Terms & Conditions](https://aqinode.click/terms.html): Terms governing use of AqiNode's website and services.
+
+## Products
+
+- Webyte AI: An AI website developer that understands you and your business — build websites, go live, and manage in real time. (Coming soon)
+- Aven: A platform to streamline assignment management, track student progress, and deliver feedback — designed for modern education. (Coming soon)
+
+## Services
+
+- Web & Mobile Applications: High-performance, responsive, mobile-first web and mobile apps built with modern frameworks.
+- Software Solutions: Custom software and SaaS platforms covering the full lifecycle — planning, architecture, development, testing, deployment.
+- Artificial Intelligence: Intelligent AI systems and agents that think, respond, and adapt — automating tasks and delivering real value.
+- AI Integration: Seamlessly add AI to existing systems — chatbots, recommendation engines, and data intelligence layers.
+- Automation Solutions: Smart automation that removes manual processes and helps businesses operate faster at scale.
+
+## Contact
+
+- Email: aqinodelabs@gmail.com
+- X / Twitter: https://x.com/aqinode_hq (@aqinode_hq)
+- WhatsApp: https://wa.me/2347057182425

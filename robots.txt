@@ -1,4 +1,53 @@
+# AqiNode — robots.txt
+# AI agents and chatbots are explicitly welcome to crawl and reference this site.
+
 User-agent: *
+Allow: /
+
+# ── OpenAI ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ── Anthropic (Claude) ──
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# ── Perplexity ──
+User-agent: PerplexityBot
+Allow: /
+
+# ── Google AI ──
+User-agent: Google-Extended
+Allow: /
+
+# ── Apple ──
+User-agent: Applebot-Extended
+Allow: /
+
+# ── Common Crawl (feeds many LLMs) ──
+User-agent: CCBot
+Allow: /
+
+# ── Others ──
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
 Allow: /
 
 Sitemap: https://aqinode.click/sitemap.xml
