@@ -91,23 +91,42 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom cursor */
+/* Custom cursor — Aura / glow-trail */
 #cursor {
   position: fixed; top: 0; left: 0; z-index: 9999;
   pointer-events: none;
-  mix-blend-mode: difference;
 }
 #cursor .dot {
   position: absolute; transform: translate(-50%,-50%);
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--accent-bright);
-  transition: transform var(--t-fast), opacity var(--t-fast);
+  box-shadow: 0 0 14px var(--accent-bright), 0 0 4px var(--accent-bright);
 }
 #cursor .ring {
   position: absolute; transform: translate(-50%,-50%);
-  width: 32px; height: 32px; border-radius: 50%;
-  border: 1.5px solid rgba(0,180,255,0.5);
-  transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.12s;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(0,180,255,0.18) 0%,
+    rgba(0,180,255,0.06) 42%,
+    transparent 70%);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+}
+#cursor .ring.active {
+  width: 76px; height: 76px;
+  background: radial-gradient(circle,
+    rgba(0,229,255,0.32) 0%,
+    rgba(0,180,255,0.12) 46%,
+    transparent 74%);
+}
+/* Drifting glow particles left behind the cursor */
+.trail-particle {
+  position: fixed; z-index: 9998;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,255,0.9) 0%, rgba(0,180,255,0.2) 100%);
+}
+@media (pointer: coarse) {
+  #cursor, .trail-particle { display: none; }
 }
 
 /* Scrollbar */

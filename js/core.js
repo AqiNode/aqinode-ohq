@@ -215,15 +215,41 @@ AqiNode.register('footer', () => `
   <div id="cursor"><div class="dot"></div><div class="ring"></div></div>
 `);
 
-// ── CURSOR ───────────────────────────────────────────────────
+// ── CURSOR ── Aura / glow-trail ──────────────────────────────
 function initCursor() {
   const cursor = document.getElementById('cursor');
   if (!cursor) return;
   const dot = cursor.querySelector('.dot');
   const ring = cursor.querySelector('.ring');
   let mx = 0, my = 0, rx = 0, ry = 0;
+  let lastSpawn = 0;
 
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    const now = performance.now();
+    if (now - lastSpawn > 24) {
+      lastSpawn = now;
+      spawnParticle(mx, my);
+    }
+  }, { passive: true });
+
+  function spawnParticle(x, y) {
+    const p = document.createElement('span');
+    p.className = 'trail-particle';
+    const size = Math.random() * 5 + 3;
+    p.style.width = p.style.height = size + 'px';
+    p.style.left = x + 'px';
+    p.style.top = y + 'px';
+    document.body.appendChild(p);
+    const dx = (Math.random() - 0.5) * 44;
+    const dy = (Math.random() - 0.5) * 44;
+    requestAnimationFrame(() => {
+      p.style.transform = `translate(${dx}px, ${dy}px)`;
+      p.style.opacity = '0';
+      p.style.transition = 'transform 700ms ease-out, opacity 700ms ease-out';
+    });
+    setTimeout(() => p.remove(), 700);
+  }
 
   function tick() {
     rx += (mx - rx) * 0.12;
@@ -234,15 +260,10 @@ function initCursor() {
   }
   tick();
 
-  document.querySelectorAll('a, button, .card, .btn, input, textarea').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      ring.style.width = '48px'; ring.style.height = '48px';
-      ring.style.borderColor = 'rgba(26,140,255,0.7)';
-    });
-    el.addEventListener('mouseleave', () => {
-      ring.style.width = '32px'; ring.style.height = '32px';
-      ring.style.borderColor = 'rgba(0,180,255,0.5)';
-    });
+  const hoverTargets = 'a, button, .card, .btn, input, textarea';
+  document.querySelectorAll(hoverTargets).forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('active'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('active'));
   });
 }
 
