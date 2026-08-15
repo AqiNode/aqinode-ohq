@@ -109,7 +109,7 @@ AqiNode.register('navbar', () => `
   </svg>
 </span>
           </button>
-          <button class="hamburger" id="hamburger" aria-label="Menu">
+          <button class="hamburger" id="hamburger" aria-label="Menu" data-cursor="Menu">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -119,7 +119,7 @@ AqiNode.register('navbar', () => `
   </nav>
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu"></button>
+    <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu" data-cursor="Close"></button>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="products.html">Products</a>
@@ -212,59 +212,56 @@ AqiNode.register('footer', () => `
       </div>
     </div>
   </footer>
-  <div id="cursor"><div class="dot"></div><div class="ring"></div></div>
+  <div id="cursor"><div class="dot"></div><div class="ring"><span class="cursor-label"></span></div></div>
 `);
 
-// ── CURSOR ── Aura / glow-trail ──────────────────────────────
+// ── CURSOR ── Magnetic pull ──────────────────────────────────
 function initCursor() {
   const cursor = document.getElementById('cursor');
   if (!cursor) return;
   const dot = cursor.querySelector('.dot');
   const ring = cursor.querySelector('.ring');
+  const label = ring.querySelector('.cursor-label');
   let mx = 0, my = 0, rx = 0, ry = 0;
-  let lastSpawn = 0;
+  let magnetTarget = null;
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    const now = performance.now();
-    if (now - lastSpawn > 24) {
-      lastSpawn = now;
-      spawnParticle(mx, my);
-    }
   }, { passive: true });
 
-  function spawnParticle(x, y) {
-    const p = document.createElement('span');
-    p.className = 'trail-particle';
-    const size = Math.random() * 5 + 3;
-    p.style.width = p.style.height = size + 'px';
-    p.style.left = x + 'px';
-    p.style.top = y + 'px';
-    document.body.appendChild(p);
-    const dx = (Math.random() - 0.5) * 44;
-    const dy = (Math.random() - 0.5) * 44;
-    requestAnimationFrame(() => {
-      p.style.transform = `translate(${dx}px, ${dy}px)`;
-      p.style.opacity = '0';
-      p.style.transition = 'transform 700ms ease-out, opacity 700ms ease-out';
+  const MAGNET_SELECTOR = 'a, button, .card, .btn, .card-link, #chat-toggle';
+  document.querySelectorAll(MAGNET_SELECTOR).forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      magnetTarget = el;
+      ring.classList.add('active');
+      if (label) {
+        label.textContent = el.dataset.cursor ||
+          (el.matches('button, .btn') ? 'Go' : 'View');
+      }
     });
-    setTimeout(() => p.remove(), 700);
-  }
+    el.addEventListener('mouseleave', () => {
+      if (magnetTarget === el) {
+        magnetTarget = null;
+        ring.classList.remove('active');
+      }
+    });
+  });
 
   function tick() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
+    let tx = mx, ty = my, lerp = 0.12;
+    if (magnetTarget && magnetTarget.isConnected) {
+      const r = magnetTarget.getBoundingClientRect();
+      tx = r.left + r.width / 2;
+      ty = r.top + r.height / 2;
+      lerp = 0.3;
+    }
+    rx += (tx - rx) * lerp;
+    ry += (ty - ry) * lerp;
     dot.style.left = mx + 'px'; dot.style.top = my + 'px';
     ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
     requestAnimationFrame(tick);
   }
   tick();
-
-  const hoverTargets = 'a, button, .card, .btn, input, textarea';
-  document.querySelectorAll(hoverTargets).forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('active'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('active'));
-  });
 }
 
 // ── NAV ─────────────────────────────────────────────────────

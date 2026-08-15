@@ -91,42 +91,45 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom cursor — Aura / glow-trail */
+/* Custom cursor — Magnetic pull */
 #cursor {
   position: fixed; top: 0; left: 0; z-index: 9999;
   pointer-events: none;
 }
 #cursor .dot {
   position: absolute; transform: translate(-50%,-50%);
-  width: 8px; height: 8px; border-radius: 50%;
+  width: 7px; height: 7px; border-radius: 50%;
   background: var(--accent-bright);
-  box-shadow: 0 0 14px var(--accent-bright), 0 0 4px var(--accent-bright);
+  box-shadow: 0 0 10px var(--accent-bright);
 }
 #cursor .ring {
   position: absolute; transform: translate(-50%,-50%);
-  width: 44px; height: 44px; border-radius: 50%;
-  background: radial-gradient(circle,
-    rgba(0,180,255,0.18) 0%,
-    rgba(0,180,255,0.06) 42%,
-    transparent 70%);
-  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid rgba(0,180,255,0.55);
+  box-shadow: 0 0 14px rgba(0,180,255,0.18), inset 0 0 10px rgba(0,180,255,0.08);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+#cursor .cursor-label {
+  font-family: var(--font-mono);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-bright);
+  opacity: 0; transform: scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
 }
 #cursor .ring.active {
-  width: 76px; height: 76px;
-  background: radial-gradient(circle,
-    rgba(0,229,255,0.32) 0%,
-    rgba(0,180,255,0.12) 46%,
-    transparent 74%);
+  width: 58px; height: 58px;
+  border-color: rgba(0,229,255,0.9);
+  background: rgba(0,180,255,0.08);
+  box-shadow: 0 0 22px rgba(0,229,255,0.3), inset 0 0 14px rgba(0,229,255,0.12);
 }
-/* Drifting glow particles left behind the cursor */
-.trail-particle {
-  position: fixed; z-index: 9998;
-  pointer-events: none;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,229,255,0.9) 0%, rgba(0,180,255,0.2) 100%);
+#cursor .ring.active .cursor-label {
+  opacity: 1; transform: scale(1);
 }
 @media (pointer: coarse) {
-  #cursor, .trail-particle { display: none; }
+  #cursor { display: none; }
 }
 
 /* Scrollbar */

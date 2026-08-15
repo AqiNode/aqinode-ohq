@@ -231,7 +231,7 @@
         if (document.getElementById('chat-container')) return;
 
         const html = `
-            <div id="chat-toggle"></div>
+            <div id="chat-toggle" data-cursor="Chat"></div>
             <div id="chat-container">
                 <div id="chat-header">
                     <span>AqiNode Support</span>
