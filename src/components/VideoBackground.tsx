@@ -12,7 +12,7 @@
  * - IntersectionObserver pauses video when hero is off-screen (saves CPU/battery)
  * - Respects `prefers-reduced-motion` and `navigator.connection.saveData` — falls back to
  *   static poster image with no video download
- * - Playback slowed by 80% (0.2x) for calmer, more cinematic hero feel
+ * - Playback slightly slowed (0.75x) for smooth, cinematic hero feel
  */
 
 "use client";
@@ -80,20 +80,20 @@ export function VideoBackground({
       return;
     }
 
-    // Slow down by 80% — 0.2x playback for calmer hero motion.
+    // Slight slow (25% slower) — 0.75x for smooth, non-laggy hero motion (24fps → ~18fps).
     // Set immediately and re-apply on play (some browsers reset rate on play).
-    videoEl.playbackRate = 0.2;
-    videoEl.defaultPlaybackRate = 0.2;
+    videoEl.playbackRate = 0.75;
+    videoEl.defaultPlaybackRate = 0.75;
 
     const handleRate = () => {
-      if (videoEl.playbackRate !== 0.2) {
-        videoEl.playbackRate = 0.2;
+      if (videoEl.playbackRate !== 0.75) {
+        videoEl.playbackRate = 0.75;
       }
     };
 
     videoEl.addEventListener("play", handleRate);
 
-    // IntersectionObserver — pause when hero scrolls out of view, resume at 0.2x
+    // IntersectionObserver — pause when hero scrolls out of view, resume at 0.75x
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!videoEl) {
@@ -101,7 +101,7 @@ export function VideoBackground({
         }
 
         if (entry.isIntersecting) {
-          videoEl.playbackRate = 0.2;
+          videoEl.playbackRate = 0.75;
           videoEl.play().catch(() => {});
         } else {
           videoEl.pause();
@@ -114,12 +114,12 @@ export function VideoBackground({
 
     observer.observe(videoEl);
 
-    // Visibility API — pause when tab is backgrounded, resume at 0.2x
+    // Visibility API — pause when tab is backgrounded, resume at 0.75x
     const handleVisibilityChange = () => {
       if (document.hidden) {
         videoEl.pause();
       } else {
-        videoEl.playbackRate = 0.2;
+        videoEl.playbackRate = 0.75;
         videoEl.play().catch(() => {});
       }
     };
